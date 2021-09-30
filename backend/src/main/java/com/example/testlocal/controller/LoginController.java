@@ -1,6 +1,6 @@
 package com.example.testlocal.controller;
 
-import com.example.testlocal.domain.dto.UserDto;
+import com.example.testlocal.domain.dto.UserDTO;
 import com.example.testlocal.repository.UserRepository;
 import com.example.testlocal.service.UserService;
 import lombok.RequiredArgsConstructor;
@@ -19,7 +19,7 @@ import java.util.Map;
 @Slf4j
 @RestController
 @RequiredArgsConstructor
-@CrossOrigin(origins = "http://localhost:3000" , allowCredentials = "true")
+@CrossOrigin(origins = "http://localhost:3000", allowCredentials = "true")
 //@CrossOrigin(origins = "http://3.141.167.159:80" , allowCredentials = "true")
 public class LoginController {
 
@@ -28,23 +28,23 @@ public class LoginController {
     private final UserService userService;
 
     @PostMapping("/logincheck")
-    public String loginUser(@RequestBody Map<String,String> map, HttpServletResponse response) {
+    public String loginUser(@RequestBody Map<String, String> map, HttpServletResponse response) {
 
         String accessToken = "";
         String refreshToken = "";
 
-        Map<String,String> resultMap = userService.login(map);
+        Map<String, String> resultMap = userService.login(map);
         accessToken = resultMap.get("accessToken");
         refreshToken = resultMap.get("refreshToken");
 
         Cookie refreshCookie = new Cookie("refreshToken", refreshToken);
 
-        refreshCookie.setMaxAge( 120 * 60 );   //30분 : 30 * 60
+        refreshCookie.setMaxAge(120 * 60);   //30분 : 30 * 60
         refreshCookie.setPath("/");
         refreshCookie.setSecure(false);
         refreshCookie.setHttpOnly(true);
 
-        Cookie idCookie = new Cookie("id",map.get("id"));
+        Cookie idCookie = new Cookie("id", map.get("id"));
         idCookie.setMaxAge(30 * 24 * 60 * 60);   //30일
         idCookie.setPath("/");
         idCookie.setSecure(false);
@@ -59,18 +59,24 @@ public class LoginController {
         return accessToken;
     }
 
+    @PostMapping("/usersignup")
+    public String userSignUp(@RequestBody Map<String, String> map) {
+        userService.signUp(new UserDTO(map.get("studentId"), map.get("id"), map.get("pwd"), map.get("name")));
+        return "good";
+    }
+
     @PostMapping("/refreshLoginToken")
-    public String refreshLoginToken(@RequestBody Map<String,String> map,HttpServletRequest request, HttpServletResponse response){
+    public String refreshLoginToken(@RequestBody Map<String, String> map, HttpServletRequest request, HttpServletResponse response) {
 
         String accessToken = "";
         String refreshToken = "";
 
-        Map<String,String> resultMap = userService.refreshToken(map.get("id"),request.getCookies());
+        Map<String, String> resultMap = userService.refreshToken(map.get("id"), request.getCookies());
         accessToken = resultMap.get("accessToken");
         refreshToken = resultMap.get("refreshToken");
 
         Cookie refreshCookie = new Cookie("refreshToken", refreshToken);
-        refreshCookie.setMaxAge( 120 * 60 );   //30분 : 30 * 60
+        refreshCookie.setMaxAge(120 * 60);   //30분 : 30 * 60
         refreshCookie.setPath("/");
         refreshCookie.setSecure(false);
         refreshCookie.setHttpOnly(true);
@@ -80,7 +86,7 @@ public class LoginController {
     }
 
     @PostMapping("/userlogout")
-    public String logout(HttpServletResponse response){
+    public String logout(HttpServletResponse response) {
         System.out.println("qwe");
         Cookie cookie = new Cookie("refreshToken", null);
 

@@ -42,9 +42,10 @@ body {
 #secondHorizontalNav{
   height: 100vh;
   background-color: #f6f6f6;
+  /* background-color: #ebf6ff; */
   display: flex;
   flex-direction: column;
-  margin-right: 5px;
+  padding-right: 5px;
 }
 
 #secondHorizontalNav div{
@@ -52,6 +53,15 @@ body {
   height: 100vh;
   width: fit-content;
   background-color: #f6f6f6;
+  /* background-color: #ebf6ff; */
+}
+
+#emptySpace1{
+  /* background-color: #ebf6ff; */
+  background-color: #f6f6f6;
+  width: 160px;
+  /* max-width: 130px; */
+  min-width: 90px;
 }
 
 
@@ -62,6 +72,7 @@ body {
   font-size: 20px;
   color: #990000;
 }
+
 #secondHorizontalNav div li {
   width: 20vw;
   font-family: 'nanumB';
@@ -100,7 +111,8 @@ body {
   margin-left: 20px;
 }
 
-#chattingSpace {
+#chattingSpace,
+#taChattingSpace {
   overflow-y: scroll;
   height: 90%;
   margin-right: 20px;
@@ -128,7 +140,25 @@ body {
   /* border-radius: 10px; */
 }
 
-#inputForm button{
+#taMsgInput {
+  flex: 1;
+  margin: 20px 10px 20px 20px;
+  min-height: 50px;
+  border: solid 2px #008cff;
+  border-radius: 10px;
+  padding-left: 20px;
+  font-family: 'nanumR';
+  font-size: 20px;
+}
+
+#taMsgInput:focus {
+  outline: none;
+  border: solid 2px #00d8ec;
+  /* border: solid 3px #990000; */
+  /* border-radius: 10px; */
+}
+
+#msgBnt{
   width: fit-content;
   font-family: "nanumB";
   font-size: 17px;
@@ -142,8 +172,26 @@ body {
   cursor: pointer;
 }
 
-#inputForm button:hover{
+#msgBnt:hover{
   background-color: #ff7777;
+}
+
+#taMsgBnt{
+  width: fit-content;
+  font-family: "nanumB";
+  font-size: 17px;
+  margin: 20px 20px 20px 0px;
+  padding: 0px 13px 0px 13px;
+
+  background-color: #008cff;
+  color: white;
+  border-style: none;
+  border-radius: 9px;
+  cursor: pointer;
+}
+
+#taMsgBnt:hover{
+  background-color: #00d8ec;
 }
 
 .botMsg {
@@ -217,7 +265,8 @@ body {
 
 /* 스크롤바 설정 */
 
-#chattingSpace::-webkit-scrollbar {
+#chattingSpace::-webkit-scrollbar,
+#taChattingSpace::-webkit-scrollbar {
   width: 10px;
 }
 
@@ -228,8 +277,17 @@ body {
   border-radius: 10px;  
 }
 
+#taChattingSpace::-webkit-scrollbar-thumb{
+  height: 17%;
+  background-color:#008cff;
+  /* 스크롤바 둥글게 설정    */
+  border-radius: 10px;  
+}
+
 /* 스크롤바 뒷 배경 설정*/
-#chattingSpace::-webkit-scrollbar-track{
+#chattingSpace::-webkit-scrollbar-track,
+#taChattingSpace::-webkit-scrollbar-track
+{
   background-color: #f6f6f6;
   border-radius: 10px;
 }

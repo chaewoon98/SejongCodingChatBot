@@ -1,7 +1,8 @@
-import { LOGIN, LOGIN_SUCCESS, LOGIN_FAIL } from './loginTypes';
+import { LOGIN_SUCCESS, LOGIN_FAIL, LOGIN_PENDING, LOGIN_BEFORE,LOGIN_ORIGIN } from './loginTypes';
 
 const initialState = {
-    state:'',
+    
+    type:LOGIN_ORIGIN,
     id:''
 };
 
@@ -10,16 +11,25 @@ const loginReducer = (state = initialState, action) => {
 
   switch (type) {
 
+    case LOGIN_PENDING:
+        return{
+            ...state,
+            type:LOGIN_PENDING,
+        }
     case LOGIN_SUCCESS:
         return {
             ...state,
-            state:LOGIN_SUCCESS,
-            id : data.id
+            type:LOGIN_SUCCESS,
         }
     case LOGIN_FAIL:
         return{
             ...state,
-            state:LOGIN_FAIL
+            type:LOGIN_FAIL
+        }
+    case LOGIN_BEFORE:
+        return{
+            ...state,
+            type:LOGIN_BEFORE
         }
 
     default:

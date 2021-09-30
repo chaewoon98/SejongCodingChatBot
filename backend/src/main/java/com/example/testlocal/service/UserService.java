@@ -1,18 +1,15 @@
 package com.example.testlocal.service;
 
-import com.example.testlocal.domain.dto.UserDto;
+import com.example.testlocal.domain.dto.UserDTO;
 import com.example.testlocal.domain.entity.UserEntity;
 import com.example.testlocal.repository.UserRepository;
 import com.example.testlocal.security.JwtTokenProvider;
 import lombok.RequiredArgsConstructor;
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
-import org.springframework.security.web.csrf.InvalidCsrfTokenException;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import javax.servlet.http.Cookie;
-import javax.servlet.http.HttpServletResponse;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Optional;
@@ -25,7 +22,7 @@ public class UserService {
     private final UserRepository userRepository;
 
     @Transactional
-    public String signUp(UserDto user) {
+    public String signUp(UserDTO user) {
         // pw를 암호화하는 과정
         user.setPassword(passwordEncoder.encode(user.getPassword()));
         return userRepository.save(user.toEntity()).getId();

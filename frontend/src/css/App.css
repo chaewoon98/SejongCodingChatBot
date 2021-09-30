@@ -34,7 +34,7 @@ a{
   padding-top: 10px;
   padding-bottom: 10px;
   text-align: center;
-  z-index: 10;
+  z-index: 20;
   /*justify-content: space-between;*/
 }
 
@@ -45,6 +45,7 @@ a{
   justify-content: flex-end;
   left: 0;
   width: 100%;
+  z-index: 15;
 }
 
 #horizontalHeaderBg a{
@@ -109,6 +110,12 @@ a{
 
 .verNavItem{
   padding-bottom: 0.5px;
+  background-color: #71bfff;
+}
+
+.verNavItemClicked{
+  padding-bottom: 0.5px;
+  background-color:#008cff;
 }
 
 .verNavItem:hover{
@@ -121,12 +128,12 @@ a{
 
   min-width: 50px;
   max-width: 75px;
-  width:10vh; 
+  /* width:10vh;  */
 
   margin-top: 10px;
   margin-bottom: 10px;
-  margin-left: 5px;
-  margin-right: 5px;
+  margin-left: 8px;
+  margin-right: 8px;
 
   align-content: inherit;
   border: 0;
@@ -180,7 +187,8 @@ a{
 .header_title{ 
   text-align: center;
   font-family: "nanumB";
-  font-size: 2vh;
+  /* font-size: 2vh; */
+  font-size: 17px;
   min-width: 10px;
   margin-left: 10px;
   margin-right: 10px;
@@ -194,16 +202,9 @@ a{
   border: none;
   border-style: none;
   border-radius: 4px;
-  margin-top: 1.5vh;
-  margin-bottom: 1.5vh;
+  margin-top: 10px;
+  margin-bottom: 10px;
   margin-left: 10px;
   margin-right: 10px;
-
-}
-
-#emptySpace1{
-  width: 20vh;
-  max-width: 130px;
-  min-width: 70px;
 
 }

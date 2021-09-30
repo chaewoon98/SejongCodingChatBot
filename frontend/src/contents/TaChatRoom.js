@@ -7,16 +7,17 @@ import {
   addMsgData,
   getBotResponse,
   fetchChatData,
-} from '../redux/chat/chatActions';
+} from '../redux/chat/ta_chat/taChatActions';
 import '../css/Chatroom.css';
+import SockJS from 'sockjs-client';
+import { Stomp } from '@stomp/stompjs';
+
+let sockJS = new SockJS('http://localhost:8080/websocket');
+let stomp = Stomp.over(sockJS);
 
 const chatData = ({ chatsData }) => {
-  // useEffect(()=>{
-  //   fetChatData()
-  // }, [])
-
   const chatItems = chatsData.map((chat) => {
-    if (chat.sender === 'bot') {
+    if (chat.sender === 'ta') {
       return <BotChatMsgItem msg={chat.msg} key={chat.id} />;
     } else if (chat.sender === 'user') {
       return <UserChatMsgItem msg={chat.msg} key={chat.id} />;
@@ -26,12 +27,25 @@ const chatData = ({ chatsData }) => {
   return <>{chatItems}</>;
 };
 
+const listData = ({ list }) => {
+  const listItems = list.map((item) => {
+    return (
+      <li key={item.id}>
+        <p>{item.title}</p>
+        <p>{item.des}</p>
+      </li>
+    );
+  });
+
+  return <>{listItems}</>;
+};
+
 function BotChatMsgItem({ msg }) {
   return (
     <li className="botMsg">
-      <img src="img/logo.png"/>
+      <img src="img/taman.png" />
       <div>
-        <p>세종 코딩 헬퍼</p>
+        <p>TA 홍길동</p>
         <p>{msg}</p>
       </div>
     </li>
@@ -49,24 +63,39 @@ function UserChatMsgItem({ msg }) {
   );
 }
 
-const ChatRoom = ({ num, chatsData, addMsgData, getBotResponse }) => {
+const TaChatRoom = ({ num, chatsData, list, addMsgData, getBotResponse }) => {
   const msgInput = useRef();
   const scrollRef = useRef();
 
   useEffect(() => {
     scrollToBottom();
+
+    stomp.connect({}, () => {
+      stomp.subscribe('/sub/chat/room/' + '12321', function (chat) {
+
+        var content = JSON.parse(chat.body);
+        
+        console.log(content);
+        
+        addMsgData(num, 'ta', content.message);
+        // chatBox.append(
+        //   '<li>' + content.message + '(' + content.userId + ')</li>',
+        // );
+
+      });
+    });
+
   });
 
   const scrollToBottom = () => {
-    console.log('h');
     scrollRef.current.scrollIntoView({ behavior: 'smooth' });
   };
 
-  const handleKeyPress = (e) =>{
-    if (e.key === "Enter") {
+  const handleKeyPress = (e) => {
+    if (e.key === 'Enter') {
       sendMsg();
     }
-  }
+  };
 
   function sendMsg() {
     const text = msgInput.current.value;
@@ -75,54 +104,47 @@ const ChatRoom = ({ num, chatsData, addMsgData, getBotResponse }) => {
       return;
     }
 
+    stomp.send('/pub/chat/message', {}, JSON.stringify({roomNo: 12321, userId: "user", message: text}));
+
     addMsgData(num, 'user', text);
     msgInput.current.value = '';
 
-    getBotResponse(text);
+    //getBotResponse(text);
     //scrollToBottom();
   }
 
   return (
     <div style={{ width: '100%' }}>
-      <VerticalHeader/>
-      <HorizontalHeader/>
+      <VerticalHeader />
+      <HorizontalHeader />
 
       <div id="chatRoomBody">
         <div id="emptySpace1" />
 
         <div id="secondHorizontalNav">
-          <h3>실시간 키워드 정보</h3>
+          <h3 style={{ color: '#008cff' }}> 채팅방 목록</h3>
           <div>
-            <li>
-              <p>C언어 변수</p>
-              <p>기본적인 변수 선언, 변수 할당</p>
-            </li>
-            <li>
-              <p>관계 연산자</p>
-              <p>관계 연산자의 결과 확인, 변수에 값을 저장하는 대입 연산자.</p>
-            </li>
-            <li>
-              <p>조건문의 종류</p>
-              <p>조건식에 따라 실행하는 명령문의 흐름 제어문</p>
-            </li>
-            <li>
-              <p>오류 코드 printf</p>
-              <p>주로 C코드 출력문에서의 문법 오류</p>
-            </li>
+            <div>{listData({ list })}</div>
           </div>
         </div>
 
         <div id="mainChatting">
-          <h3>대화하기</h3>
+          <h3 style={{ color: '#008cff' }}>대화하기</h3>
 
-          <div id="chattingSpace">
+          <div id="taChattingSpace">
             {chatData({ chatsData })}
             <div ref={scrollRef}></div>
           </div>
 
           <div id="inputForm">
-            <input id="msgInput" ref={msgInput} onKeyPress={handleKeyPress}></input>
-            <button onClick={() => sendMsg()}>전 송</button>
+            <input
+              id="taMsgInput"
+              ref={msgInput} //border: solid 2px #990000;
+              onKeyPress={handleKeyPress}
+            ></input>
+            <button id="taMsgBnt" onClick={() => sendMsg()}>
+              전 송
+            </button>
           </div>
         </div>
       </div>
@@ -130,12 +152,13 @@ const ChatRoom = ({ num, chatsData, addMsgData, getBotResponse }) => {
   );
 };
 
-const mapStateToProps = ({ chats }) => {
-  console.log(chats.items);
+const mapStateToProps = ({ taChats }) => {
+  console.log(taChats.chats);
 
   return {
-    chatsData: chats.items,
-    num: chats.num,
+    chatsData: taChats.chats,
+    list: taChats.list,
+    num: taChats.num,
   };
 };
 
@@ -147,4 +170,4 @@ const mapDispatchToProps = (dispatch) => {
   };
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(ChatRoom);
+export default connect(mapStateToProps, mapDispatchToProps)(TaChatRoom);

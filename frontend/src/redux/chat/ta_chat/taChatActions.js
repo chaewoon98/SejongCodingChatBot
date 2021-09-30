@@ -4,9 +4,9 @@ import {
   FETCH_CHATDATA_REQUEST,
   FETCH_CHATDATA_SUCCESS,
   FETCH_CHATDATA_FAILURE,
-  ADD_CHATMSG,
-  GET_BOT_RESPONSE,
-} from './chatTypes';
+  ADD_TA_CHATMSG,
+  GET_TA_RESPONSE,
+} from './taChatTypes';
 
 // const fetChatData = () => {
 //     return (dispatch) => {
@@ -25,7 +25,7 @@ export const fetchChatData = () => {
 
 export const addMsgData = (id, sender,msg) => {
     return{
-      type: ADD_CHATMSG,
+      type: ADD_TA_CHATMSG,
       data:{id:id,sender: sender, msg: msg}
     };
 }
@@ -36,7 +36,7 @@ export const getBotResponse = (msg) => {
   msg = "엔샵 박태순 최고";
 
   return{
-    type: GET_BOT_RESPONSE,
+    type: GET_TA_RESPONSE,
     data:{
       msg:msg
     }

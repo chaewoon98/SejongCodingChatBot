@@ -8,11 +8,11 @@ import lombok.Setter;
 
 @Getter
 @Setter
-public class UserDto {
+public class UserDTO {
 
     private String id,password,name,studentNumber;
 
-    public UserDto(String studentNumber, String id, String password, String name) {
+    public UserDTO(String studentNumber, String id, String password, String name) {
         this.studentNumber = studentNumber;
         this.id = id;
         this.password = password;

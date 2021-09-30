@@ -8,7 +8,7 @@ function RenderingImg({ isMain }) {
   if (isMain) {
     return (
       <>
-        <Link to="/login">
+        <Link to="/mypage">
           <img className="horizonLogoImg2" src="img/user.png" />
         </Link>
         <Link to="/">
@@ -19,7 +19,7 @@ function RenderingImg({ isMain }) {
   }
   return (
     <>
-      <Link to="/login">
+      <Link to="/myPage">
         <img className="horizonLogoImg" src="img/userBlack.png" />
       </Link>
       <Link to="/">
