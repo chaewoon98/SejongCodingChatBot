@@ -1,0 +1,40 @@
+package entrue.websocketchat.repository;
+
+import entrue.websocketchat.DTO.RoomDTO;
+import org.springframework.stereotype.Repository;
+
+import java.util.*;
+import java.util.function.Function;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
+
+//채팅방 생성 및 정보 조회 Repository
+@Repository
+public class ChatRoomRepository {
+    private Map<String, RoomDTO> chatRoomDTOMap;
+
+    public ChatRoomRepository() {
+        chatRoomDTOMap = Collections.unmodifiableMap(
+                Stream.of(RoomDTO.create("1번방"), RoomDTO.create("2번방"))
+                        .collect(Collectors.toMap(RoomDTO::getRoomName, Function.identity())));
+    }
+
+    //user id로 room 찾기
+    public RoomDTO findRoomById(String id){
+        return chatRoomDTOMap.get(id);
+    }
+
+    public List<RoomDTO> findAllRooms(){
+        List<RoomDTO> result = new ArrayList<>(chatRoomDTOMap.values());
+        Collections.reverse(result);
+
+        return result;
+    }
+
+    public RoomDTO createChatRoomDTO(String name){
+        RoomDTO room = RoomDTO.create(name);
+        chatRoomDTOMap.put(room.getRoomNo(), room);
+
+        return room;
+    }
+}
