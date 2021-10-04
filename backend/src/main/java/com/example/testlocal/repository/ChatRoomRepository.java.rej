@@ -1,6 +1,0 @@
-diff a/backend/src/main/java/com/example/testlocal/repository/ChatRoomRepository.java b/backend/src/main/java/com/example/testlocal/repository/ChatRoomRepository.java	(rejected hunks)
-@@ -0,3 +1,4 @@
-+package entrue.websocketchat.repository;
- 
- import entrue.websocketchat.DTO.RoomDTO;
- import org.springframework.stereotype.Repository;

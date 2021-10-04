@@ -21,7 +21,6 @@ public class ChatRoomRepository {
                         .collect(Collectors.toMap(RoomDTO::getRoomNo, Function.identity())));
     }
 
-    //user id로 room 찾기
     public RoomDTO findRoomById(String id){
         return chatRoomDTOMap.get(id);
     }
