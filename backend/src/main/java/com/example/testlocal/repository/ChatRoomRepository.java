@@ -1,6 +1,7 @@
-package entrue.websocketchat.repository;
+package com.example.testlocal.repository;
 
-import entrue.websocketchat.DTO.RoomDTO;
+
+import com.example.testlocal.domain.dto.RoomDTO;
 import org.springframework.stereotype.Repository;
 
 import java.util.*;
@@ -14,9 +15,10 @@ public class ChatRoomRepository {
     private Map<String, RoomDTO> chatRoomDTOMap;
 
     public ChatRoomRepository() {
+        //임시 채팅방 데이터
         chatRoomDTOMap = Collections.unmodifiableMap(
-                Stream.of(RoomDTO.create("1번방"), RoomDTO.create("2번방"))
-                        .collect(Collectors.toMap(RoomDTO::getRoomName, Function.identity())));
+                Stream.of(RoomDTO.create("1", "1번방"), RoomDTO.create("2", "2번방"))
+                        .collect(Collectors.toMap(RoomDTO::getRoomNo, Function.identity())));
     }
 
     //user id로 room 찾기
@@ -31,8 +33,8 @@ public class ChatRoomRepository {
         return result;
     }
 
-    public RoomDTO createChatRoomDTO(String name){
-        RoomDTO room = RoomDTO.create(name);
+    public RoomDTO createChatRoomDTO(String no, String name){
+        RoomDTO room = RoomDTO.create(no, name);
         chatRoomDTOMap.put(room.getRoomNo(), room);
 
         return room;
