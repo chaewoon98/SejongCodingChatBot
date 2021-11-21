@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import '../css/App.css';
 import VerticalHeader from './VerticalHeader';
 import HorizontalHeader from './HorizontalHeader';
+import Root from './Root';
 
 const Main = () => {
   return (

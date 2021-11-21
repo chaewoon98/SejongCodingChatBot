@@ -17,7 +17,8 @@ public class ChatRoomRepository {
     public ChatRoomRepository() {
         //임시 채팅방 데이터
         chatRoomDTOMap = Collections.unmodifiableMap(
-                Stream.of(RoomDTO.create("1", "1번방"), RoomDTO.create("2", "2번방"))
+                Stream.of(RoomDTO.create("1", "1번방"),
+                                RoomDTO.create("2", "2번방"))
                         .collect(Collectors.toMap(RoomDTO::getRoomNo, Function.identity())));
     }
 

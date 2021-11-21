@@ -1,0 +1,136 @@
+* {
+    padding: 0;
+    margin: 0;
+  }
+  
+  html,
+  body {
+    width: 100%;
+    height: 100%;
+    background-color: #f6f6f6;
+  }
+
+  .App{
+    height: 100%;
+  }
+  
+  a {
+    text-decoration: none;
+  }
+  
+  @font-face {
+    font-family: 'nanumB';
+    src: url('../fonts/NanumSquareRoundEB.ttf');
+  }
+  
+  @font-face {
+    font-family: 'GmB';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/GmarketSansBold.woff')
+      format('woff');
+    font-weight: normal;
+    font-style: normal;
+  }
+  
+  @font-face {
+    font-family: 'GmL';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/GmarketSansLight.woff')
+      format('woff');
+    font-weight: normal;
+    font-style: normal;
+  }
+  
+  #myPageBox {
+    width: 700px;
+    height:fit-content;
+
+    background-color: white;
+    margin: auto;
+    padding: 20px;
+    border-radius: 10px;
+    display: flex;
+    flex-direction:column;
+  
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+  }
+
+  #myPageBox h3 {
+    font-family: 'GmB';
+    font-size: 36px;
+    margin-bottom: 50px;
+  }
+
+  #myPageBox img {
+    width: 125px;
+    height: 125px;
+  
+    /* padding:  5px; */
+    border: 0;
+    margin-top: 20px;
+    margin-bottom: 30px;
+  
+    /* 이미지  */
+    image-rendering: -webkit-optimize-contrast;
+    transform: translateZ(0);
+    backface-visibility: hidden;
+  }
+
+  #myInfoSector{
+      width: 80%;
+      display: flex;
+      flex-direction: row;
+      justify-content: space-around;
+  }
+
+  #myInfoColumn{
+    display: flex;
+    flex-direction: column;
+    text-align: start;
+    font-family: 'nanumB';
+    font-size: 20px;
+  }
+
+  #myInfoValue{
+    display: flex;    
+    flex-direction: column;
+    text-align: start;
+    font-family: 'nanumR';
+    font-size: 20px;
+  }
+
+  #myInfoColumn p,
+  #myInfoValue p{
+      margin: 10px 0px 10px 0px;
+      text-align: start;
+  }
+
+  #myInfoBntSector{
+    width: 80%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+  #myPageBox button {
+    width: 30%;
+    height: fit-content;
+    font-family: 'nanumB';
+    font-size: 17px;
+    margin: 20px auto 20px auto;
+    padding: 10px 0 10px 0;
+  
+    background-color: #990000;
+    color: white;
+    border-style: none;
+    border-radius: 7px;
+    cursor: pointer;
+    text-align: center;
+  }
+
+  #myPageBox button:hover{
+    background-color: #ff7777;
+  }
+      
+
+  

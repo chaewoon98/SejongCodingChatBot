@@ -1,0 +1,145 @@
+@font-face {
+  font-family: 'nanumB';
+  src: url('../../fonts/NanumSquareB.ttf');
+}
+
+@font-face {
+  font-family: 'nanumR';
+  src: url('../../fonts/NanumSquareR.ttf');
+}
+
+.codeCompilerQaModal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 989;
+}
+
+.codeCompilerQaModal .bg {
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.6);
+}
+
+.codeCompilerQaModalBox {
+  position: absolute;
+  background-color: white;
+  text-align: center;
+  border-radius: 20px;
+  width: 500px;
+  /* height: 345px; */
+  height: fit-content;
+  padding: 15px 15px 0px 15px;
+  display: flex;
+  flex-direction: column;
+}
+
+.codeCompilerQaModalBox .modalTitle {
+  font-family: nanumB;
+  font-size: 22px;
+  color: #990000;
+  margin-bottom: 40px;
+}
+
+.codeCompilerQaModalBox .modalDes{
+  font-family: nanumB;
+  font-size: 14px;
+  color: black;
+  margin: 20px 0px 10px 0px;
+}
+
+.codeCompilerQaModalBox .chatRoomList{
+  height: 300px;
+  background-color: #f6f6f6;
+  margin: 0px 20px 0px 20px;
+  overflow: auto;
+}
+
+.chatRoomList .nonSelectedRoomLi{
+
+  font-family: 'nanumB';
+  background-color: white;
+  margin: 20px 20px 20px 20px;
+  border: none;
+  border-radius: 10px;
+  padding: 12px;
+  list-style: none;
+  cursor: pointer;
+  text-align: left;
+}
+
+.chatRoomList .selectedRoomLi{
+
+  font-family: 'nanumB';
+  background-color: #b2dcff;
+  margin: 20px 20px 20px 20px;
+  border: none;
+  border-radius: 10px;
+  padding: 12px;
+  list-style: none;
+  cursor: pointer;
+  text-align: left;
+}
+
+.chatRoomList .nonSelectedRoomLi:hover{
+
+  background-color: #b2dcff;
+}
+
+.chatRoomList li p:nth-of-type(1){
+  font-family: 'nanumB';
+  font-size: 18px;
+}
+
+.chatRoomList li p:nth-of-type(2){
+  font-family: 'nanumB';
+  font-size: 14px;
+  margin-top: 10px;
+}
+
+.codeCompilerQaModalBox .cuttingLine {
+  width: 100%;
+  height: 1.5px;
+  border-radius: 5px;
+  margin-top: 20px;
+  background-color: #f1f1f1;
+}
+
+.codeCompilerQaModalBox button {
+  width: 100%;
+  background-color: white;
+  border: none;
+  color: black;
+  font-family: nanumB;
+  font-size: 20px;
+  padding: 15px 20px 15px 20px;
+  border-radius: 20px;
+  cursor: pointer;
+}
+
+.bntGroup{
+    display: flex;
+    flex-direction: row;
+}
+
+.chatRoomList::-webkit-scrollbar {
+  width: 10px;
+}
+
+.chatRoomList::-webkit-scrollbar-thumb {
+  height: 17%;
+  background-color: #990000;
+  /* 스크롤바 둥글게 설정    */
+  border-radius: 10px;
+}
+
+/* 스크롤바 뒷 배경 설정*/
+.chatRoomList::-webkit-scrollbar-track {
+  background-color: #f6f6f6;
+  border-radius: 10px;
+}

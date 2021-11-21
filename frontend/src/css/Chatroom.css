@@ -34,26 +34,57 @@ body {
   min-width: 100px;
   width: 100%;
   height: 100%;
-
+  max-width: 100vw;
   display: flex;
   flex-direction: row;
 }
 
-#secondHorizontalNav{
+.secondHorizontalNav {
   height: 100vh;
   background-color: #f6f6f6;
   /* background-color: #ebf6ff; */
   display: flex;
   flex-direction: column;
   padding-right: 5px;
+<<<<<<< HEAD
+=======
 }
 
-#secondHorizontalNav div{
+.secondHorizontalNav #navInnerDiv {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.secondHorizontalNav #navInnerDiv div {
+  width: 25px;
+  height: 25px;
+
+  margin: 30px 20px 20px 0px;
+  padding: 0px 0px 0px 0px;
+  background-color: #008cff;
+  text-align: center;
+  border-radius: 10px;
+  font-size: 23px;
+  font-family: 'nanumB';
+  color: white;
+  cursor: pointer;
+}
+
+.secondHorizontalNav #navInnerDiv div:hover{
+  background-color: #00d8ec;
+>>>>>>> upstream/master
+}
+
+.secondHorizontalNav .navInner2Div {
   overflow-y: auto;
   height: 100vh;
-  width: fit-content;
+  width: 25vw;
+  max-width: 400px;
+  min-width: 300px;
   background-color: #f6f6f6;
   /* background-color: #ebf6ff; */
+<<<<<<< HEAD
 }
 
 #emptySpace1{
@@ -62,48 +93,151 @@ body {
   width: 160px;
   /* max-width: 130px; */
   min-width: 90px;
+=======
+>>>>>>> upstream/master
 }
 
+#emptySpace1 {
+  /* background-color: #ebf6ff; */
+  background-color: #f6f6f6;
+  width: 100px;
+  /* max-width: 130px; */
+  min-width: 100px;
+}
 
-#secondHorizontalNav h3 {
+.secondHorizontalNav h3 {
   font-family: 'nanumB';
   padding-left: 25px;
   padding-top: 30px;
+  margin-bottom: 20px;
   font-size: 20px;
   color: #990000;
 }
 
+<<<<<<< HEAD
 #secondHorizontalNav div li {
   width: 20vw;
+=======
+.secondHorizontalNav div .nonSelectedRoomLi {
+  /* width: 20vw; */
+>>>>>>> upstream/master
   font-family: 'nanumB';
   background-color: white;
-  margin: 20px;
+  margin: 0px 20px 20px 20px;
   border: none;
   border-radius: 10px;
-  padding: 10px;
+  padding: 12px;
   list-style: none;
+  cursor: pointer;
 }
 
-#secondHorizontalNav li p:nth-child(1) {
+.secondHorizontalNav div .selectedRoomLi {
+  /* width: 20vw; */
+  font-family: 'nanumB';
+  background-color: #b2dcff;
+  margin: 0px 20px 20px 20px;
+  border: none;
+  border-radius: 10px;
+  padding: 12px;
+  list-style: none;
+  cursor: pointer;
+}
+
+.secondHorizontalNav div li:hover {
+  background-color: #b2dcff;
+}
+
+.secondHorizontalNav li div{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.secondHorizontalNav li p:nth-child(1) {
   font-family: 'nanumB';
   font-size: 18px;
 }
 
-#secondHorizontalNav li p:nth-child(2) {
+.secondHorizontalNav li .secondNavRoomNewP{
+  font-family: 'nanumB';
+  font-size: 14px;
+  /* padding-top: 8px; */
+}
+
+.secondHorizontalNav .secondNavRoomDes {
   font-family: 'nanumR';
   font-size: 13px;
   padding-top: 8px;
+
+  /* 여러줄 자르기 */
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  line-height: 16px;    
+  max-height: 32px;     
+  -webkit-line-clamp: 3; /* 표시하고자 하는 라인 수 */
+  -webkit-box-orient: vertical;
+}
+
+.secondHorizontalNav .navQuestionBnt {
+  /* width: 20vw; */
+  font-family: 'nanumB';
+  font-size: 20px;
+  background-color: white;
+  margin: 0px 20px 20px 20px;
+  border: none;
+  border-radius: 10px;
+  padding: 10px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  text-align: center;
+  align-items: center;
+  cursor: pointer;
+}
+
+.secondHorizontalNav .navQuestionBnt:hover {
+  background-color: #b2dcff;
+}
+
+.secondHorizontalNav .navQuestionSelectedBnt {
+  /* width: 20vw; */
+  font-family: 'nanumB';
+  font-size: 20px;
+  background-color: #b2dcff;
+  margin: 0px 20px 20px 20px;
+  border: none;
+  border-radius: 10px;
+  padding: 10px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  text-align: center;
+  align-items: center;
+  cursor: pointer;
+}
+
+.secondHorizontalNav .navQuestionBnt img {
+  width: 50px;
+  margin-right: 15px;
+}
+
+.secondHorizontalNav .navQuestionSelectedBnt img {
+  width: 50px;
+  margin-right: 15px;
 }
 
 #mainChatting {
+
   display: flex;
   flex-direction: column;
-  width: 100vw;
+  /* width: 100%; */
+  flex-grow: 1;
   height: 100vh;
   background-color: white;
 }
 
-#mainChatting h3{
+#mainChatting h3 {
   font-family: 'nanumB';
   font-size: 20px;
   color: #990000;
@@ -114,11 +248,12 @@ body {
 #chattingSpace,
 #taChattingSpace {
   overflow-y: scroll;
-  height: 90%;
+  height: 100%;
   margin-right: 20px;
+  width: 99%;
 }
 
-#inputForm{
+#inputForm {
   display: flex;
 }
 
@@ -158,9 +293,13 @@ body {
   /* border-radius: 10px; */
 }
 
+<<<<<<< HEAD
 #msgBnt{
+=======
+#msgBnt {
+>>>>>>> upstream/master
   width: fit-content;
-  font-family: "nanumB";
+  font-family: 'nanumB';
   font-size: 17px;
   margin: 20px 20px 20px 0px;
   padding: 0px 13px 0px 13px;
@@ -172,6 +311,7 @@ body {
   cursor: pointer;
 }
 
+<<<<<<< HEAD
 #msgBnt:hover{
   background-color: #ff7777;
 }
@@ -179,6 +319,15 @@ body {
 #taMsgBnt{
   width: fit-content;
   font-family: "nanumB";
+=======
+#msgBnt:hover {
+  background-color: #ff7777;
+}
+
+#taMsgBnt {
+  width: fit-content;
+  font-family: 'nanumB';
+>>>>>>> upstream/master
   font-size: 17px;
   margin: 20px 20px 20px 0px;
   padding: 0px 13px 0px 13px;
@@ -190,7 +339,11 @@ body {
   cursor: pointer;
 }
 
+<<<<<<< HEAD
 #taMsgBnt:hover{
+=======
+#taMsgBnt:hover {
+>>>>>>> upstream/master
   background-color: #00d8ec;
 }
 
@@ -205,23 +358,70 @@ body {
   margin: 20px;
 
   /* 이미지  */
-  image-rendering: -webkit-optimize-contrast;
+  image-rendering: crisp-edges;
   transform: translateZ(0);
   backface-visibility: hidden;
 }
 
-.botMsg div{
+.botMsg .botMsgBox {
   margin-top: 10px;
   margin-bottom: 20px;
 }
 
-.botMsg div p:nth-child(1){
+.botMsg .botSenderName {
   font-family: 'nanumB';
   font-size: 20px;
   margin-top: 20px;
 }
 
-.botMsg div p:nth-child(2){
+.botMsgBox .botSenderMainBox  {
+  display: flex;
+  height: fit-content;
+  flex-direction: row-reverse;
+  align-items: flex-end;
+  justify-content: right;
+}
+
+.botMsgBox .botSenderTime {
+  width: auto;
+  height: auto;
+  font-family: 'nanumR';
+  font-size: 12px;
+  margin:0px 0px 2px 20px
+}
+
+.botSenderCotentBox{
+  display: flex;
+  flex-direction: column;
+}
+
+.botSenderRecoContentBox{
+  display: flex;
+  flex-direction: row;
+  max-width: 40vw;
+  flex-wrap: wrap;
+}
+
+.botSenderRecoItem{
+  width: fit-content;
+  font-family: 'nanumR';
+  font-size: 14px;
+  background-color: rgb(255, 233, 233);
+  border-radius: 30px;
+  padding: 7px;
+  margin-top: 10px;
+  margin-right: 20px;
+  max-width: 30vw;
+  word-break: break-all;
+  cursor: pointer;
+}
+
+.botSenderRecoItem:hover{
+  background-color: rgb(255, 188, 188);
+}
+
+.botMsgBox .botSenderContent {
+  width: fit-content;
   font-family: 'nanumR';
   font-size: 17px;
   background-color: #f6f6f6;
@@ -229,8 +429,28 @@ body {
   border-radius: 10px;
   padding: 10px;
   margin-top: 10px;
-  margin-right: 20px;
-  max-width: 50vw;
+  max-width: 40vw;
+  word-break: break-all;
+  line-height: 25px;
+}
+
+.botMsgBox .botSenderCodeContent {
+  width: inherit;
+  font-family: 'nanumR';
+  font-size: 17px;
+  background-color: #f6f6f6;
+  border: none;
+  border-radius: 10px;
+  padding: 10px;
+  margin-top: 10px;
+  max-width: 40vw;
+  word-break: break-all;
+  cursor: pointer;
+  color: #0048ff;
+}
+
+.botMsgBox .botSenderCodeContent:hover{
+  background-color: #e9e9e9;
 }
 
 .userMsg {
@@ -238,22 +458,37 @@ body {
   flex-direction: row-reverse;
 }
 
-.userMsg div{
+.userMsg .userMsgBox {
   margin-top: 10px;
   margin-bottom: 20px;
   padding-right: 50px;
 }
 
-.userMsg div p:nth-child(1){
+.userMsg .userMsgBox .senderName {
   text-align: end;
   font-family: 'nanumB';
   font-size: 20px;
   margin-top: 20px;
-  max-width: 50vw;
-  margin-left: 20px;
 }
 
-.userMsg div p:nth-child(2){
+.userMsg .userMsgBox div  {
+  display: flex;
+  height: fit-content;
+  flex-direction: row;
+  align-items: flex-end;
+  justify-content: right;
+}
+
+.userMsg .userMsgBox .senderTime {
+  width: auto;
+  height: auto;
+  font-family: 'nanumR';
+  font-size: 12px;
+  margin:0px 20px 2px 0px
+}
+
+.userMsg .userMsgBox .senderContent {
+
   font-family: 'nanumR';
   font-size: 17px;
   background-color: #f6f6f6;
@@ -261,6 +496,40 @@ body {
   border-radius: 10px;
   padding: 10px;
   margin-top: 10px;
+  max-width: 40vw;
+  word-break: break-all;
+}
+
+.userMsg .userMsgBox .senderCodeContent {
+  font-family: 'nanumR';
+  color: #0048ff;
+  font-size: 17px;
+  background-color: #f6f6f6;
+  border: none;
+  border-radius: 10px;
+  padding: 10px;
+  margin-top: 10px;
+  max-width: 40vw;
+  word-break: break-all;
+  cursor: pointer;
+}
+
+.userMsg .userMsgBox .senderCodeContent:hover{
+  background-color: #e9e9e9;
+}
+
+
+#recommendationSpace p{
+  font-family: 'nanumR';
+  height: fit-content;
+  font-size: 17px;
+  list-style: none;
+  cursor: pointer;
+  background-color: #990000;
+  color: white;
+  margin: 15px 10px 0px 10px;
+  border-radius: 10px;
+  padding: 3px 15px 3px 15px;
 }
 
 /* 스크롤바 설정 */
@@ -270,11 +539,18 @@ body {
   width: 10px;
 }
 
-#chattingSpace::-webkit-scrollbar-thumb{
+#chattingSpace::-webkit-scrollbar-thumb {
   height: 17%;
-  background-color:#990000;
+  background-color: #990000;
   /* 스크롤바 둥글게 설정    */
-  border-radius: 10px;  
+  border-radius: 10px;
+}
+
+#taChattingSpace::-webkit-scrollbar-thumb {
+  height: 17%;
+  background-color: #008cff;
+  /* 스크롤바 둥글게 설정    */
+  border-radius: 10px;
 }
 
 #taChattingSpace::-webkit-scrollbar-thumb{
@@ -286,14 +562,18 @@ body {
 
 /* 스크롤바 뒷 배경 설정*/
 #chattingSpace::-webkit-scrollbar-track,
+<<<<<<< HEAD
 #taChattingSpace::-webkit-scrollbar-track
 {
+=======
+#taChattingSpace::-webkit-scrollbar-track {
+>>>>>>> upstream/master
   background-color: #f6f6f6;
   border-radius: 10px;
 }
 
-#secondHorizontalNav div::-webkit-scrollbar {
-  display: none; 
+.secondHorizontalNav div::-webkit-scrollbar {
+  display: none;
 }
 
 /* 스크롤바 설정 */

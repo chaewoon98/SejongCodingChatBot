@@ -1,0 +1,249 @@
+* {
+  padding: 0;
+  margin: 0;
+}
+
+html,
+body,
+#root,
+.App {
+  width: 100%;
+  height: 100%;
+  background-color: #f6f6f6;
+}
+
+@font-face {
+  font-family: 'nanumRR';
+  src: url('../fonts/NanumSquareRoundR.ttf');
+}
+
+@font-face {
+  font-family: 'nanumRB';
+  src: url('../fonts/NanumSquareRoundEB.ttf');
+}
+
+@font-face {
+  font-family: 'nanumB';
+  src: url('../fonts/NanumSquareB.ttf');
+}
+
+@font-face {
+  font-family: 'nanumR';
+  src: url('../fonts/NanumSquareR.ttf');
+}
+
+#editorContainer {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  flex-direction: row;
+}
+
+#editorBox {
+  width: 50vw;
+  height: 92vh;
+  padding: 0px 20px 0px 30px;
+  margin: 0 0px 0px 110px;
+  /* overflow: hidden; */
+  display: flex;
+  flex-direction: column;
+  min-width: 300px;
+}
+
+#outputBox {
+  width: 50vw;
+  height: 92vh;
+  padding-left: 20px;
+  padding-right: 40px;
+  display: flex;
+  flex-direction: column;
+  min-width: 300px;
+}
+
+/* .codingEditor {
+  height: 100%;
+} */
+
+#codingTopNav h1 {
+  font-family: 'nanumB';
+  padding: 30px 25px 40px 0px;
+  font-size: 20px;
+  color: #990000;
+}
+
+#outputBoxNav {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+#outputBoxNav button {
+  height: fit-content;
+  background-color: #990000;
+  color: white;
+  font-family: 'nanumR';
+  font-size: 13px;
+  border-style: none;
+  border-radius: 9px;
+  cursor: pointer;
+  padding: 5px 10px 5px 10px;
+  margin: 20px 0px 0px 0px;
+}
+
+#outputBoxNav button:hover {
+  background-color: #ff7777;
+  color: white;
+}
+
+#outputBox h1 {
+  font-family: 'nanumB';
+  padding: 30px 25px 30px 0px;
+  font-size: 20px;
+  color: #990000;
+}
+
+#codingTopNav div button {
+  height: 30px;
+  background-color: #990000;
+  color: white;
+  font-family: 'nanumB';
+  font-size: 15px;
+  padding: 5px 10px 5px 10px;
+  margin-left: 30px;
+  margin-right: 5px;
+  border-style: none;
+  border-radius: 9px;
+  cursor: pointer;
+}
+
+.monaco-editor {
+  padding-top: 10px;
+  margin-top: -10px;
+}
+
+.complierLangRadioBnt {
+  margin-top: 8px;
+}
+
+.complierLangRadioBntP {
+  margin-top: 6px;
+  margin-right: 5px;
+  font-family: 'nanumB';
+  font-size: 17px;
+}
+
+#codingTopNav div button:hover {
+  background-color: #ff7777;
+  color: white;
+}
+
+#codingTopNav {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  height: fit-content;
+}
+
+#compilerBntGroup {
+  display: flex;
+  flex-direction: row;
+  margin-top: 25px;
+}
+
+input[type='radio']:after {
+  width: 15px;
+  height: 15px;
+  border-radius: 15px;
+  top: -2px;
+  left: -1px;
+  position: relative;
+  background-color: #d1d3d1;
+  content: '';
+  display: inline-block;
+  visibility: visible;
+  border: 2px solid white;
+}
+
+input[type='radio']:checked:after {
+  width: 15px;
+  height: 15px;
+  border-radius: 15px;
+  top: -2px;
+  left: -1px;
+  position: relative;
+  background-color: #990000;
+  content: '';
+  display: inline-block;
+  visibility: visible;
+  border: 2px solid white;
+}
+#codingInnerBox {
+  display: inline-block;
+  width: 100%;
+  height: 100%;
+  min-height: 275px;
+  justify-content: center;
+  /* margin-bottom: 30px; */
+}
+
+#inputLine {
+  background-color: white;
+  width: 95%;
+  height: 40vh;
+  min-height: 60px;
+  border: 0px;
+  font-family: 'nanumR';
+  font-size: 20px;
+  resize: none;
+  padding: 20px 20px 20px 20px;
+  overflow-y: auto;
+}
+
+#inputLine:focus {
+  outline: none;
+  border: 0px;
+  /* border: solid 3px #990000; */
+  /* border-radius: 10px; */
+}
+
+#outputLine {
+  background-color: white;
+  width: 95%;
+  height: 43vh;
+  overflow-y: auto;
+  /* margin-bottom: 5vh; */
+  min-height: 62px;
+  font-family: 'nanumR';
+  font-size: 20px;
+  resize: none;
+  border: 0px;
+  padding: 20px;
+}
+
+#outputLine:focus {
+  outline: none;
+  border: 0px;
+  /* border: solid 3px #990000; */
+  /* border-radius: 10px; */
+}
+
+/* 스크롤바 설정 */
+
+#outputLine::-webkit-scrollbar,
+#inputLine::-webkit-scrollbar {
+  width: 10px;
+}
+
+#outputLine::-webkit-scrollbar-thumb,
+#inputLine::-webkit-scrollbar-thumb {
+  height: 17%;
+  background-color: #990000;
+  /* 스크롤바 둥글게 설정    */
+  border-radius: 10px;
+}
+
+#outputLine::-webkit-scrollbar-track,
+#inputLine::-webkit-scrollbar-track {
+  background-color: #f6f6f6;
+  border-radius: 10px;
+}

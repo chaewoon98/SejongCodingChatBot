@@ -5,7 +5,11 @@ import { Link } from 'react-router-dom';
 import { clickedNavItem } from '../redux/view/viewActions';
 import { useMediaQuery } from 'react-responsive';
 
+<<<<<<< HEAD
 const VerticalHeader = ({ clickedNavNum, clickedNavItem }) => {
+=======
+const VerticalHeader = ({ clickedNavNum, clickedNavItem,history }) => {
+>>>>>>> upstream/master
   const isShort = useMediaQuery({
     query: '(min-height:0px) and (max-height:599px)',
   });
@@ -70,9 +74,17 @@ const VerticalHeader = ({ clickedNavNum, clickedNavItem }) => {
         </div>
       </Link>
 
+<<<<<<< HEAD
       <Link to="/tachatroom">
         <div className={clicked2}>
           {isLong && <img className="logoImg" src="img/coding.png" />}
+=======
+       {/* 리로드가 필요해서 a 태그씀. */}
+      <Link to="/tachatroom">
+      {/* <a onClick={() => window.location.replace("tachatroom")}> */}
+        <div className={clicked2}>
+          {isLong && <img className="logoImg" src="img/question1.png" />}
+>>>>>>> upstream/master
 
           {isLong && (
             <p className="header_title">
@@ -93,8 +105,10 @@ const VerticalHeader = ({ clickedNavNum, clickedNavItem }) => {
 
           <hr className="header_line" />
         </div>
+      {/* </a> */}
       </Link>
 
+<<<<<<< HEAD
       <Link to="/curri">
         <div className={clicked3}>
           {isLong && <img className="logoImg" src="img/curri.png" />}
@@ -103,6 +117,16 @@ const VerticalHeader = ({ clickedNavNum, clickedNavItem }) => {
 
           {isShort && <p className="header_title"  style={{ paddingBottom: paddingBottomInShort, 
             paddingTop:paddingTopInShort }}>커리 큘럼</p>}
+=======
+      <Link to="/codingEditor">
+        <div className={clicked3}>
+          {isLong && <img className="logoImg" src="img/coding.png" />}
+
+          {isLong && <p className="header_title">코딩 하기</p>}
+
+          {isShort && <p className="header_title"  style={{ paddingBottom: paddingBottomInShort, 
+            paddingTop:paddingTopInShort }}>코딩 하기</p>}
+>>>>>>> upstream/master
 
           <hr className="header_line" />
         </div>

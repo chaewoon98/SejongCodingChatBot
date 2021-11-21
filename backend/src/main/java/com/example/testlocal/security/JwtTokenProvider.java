@@ -1,16 +1,17 @@
 package com.example.testlocal.security;
 
-import io.jsonwebtoken.*;
+import io.jsonwebtoken.Claims;
+import io.jsonwebtoken.Jws;
+import io.jsonwebtoken.Jwts;
+import io.jsonwebtoken.SignatureAlgorithm;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.stereotype.Component;
-import org.springframework.web.bind.annotation.CrossOrigin;
 
 import javax.servlet.http.HttpServletRequest;
-import java.time.Duration;
 import java.util.Base64;
 import java.util.Date;
 
@@ -19,16 +20,16 @@ import java.util.Date;
 public class JwtTokenProvider {
 
     private String secretKey = "byukbyubyubyukkk";
-    private long tokenValidTime = 30*60*1000L;
+    private long tokenValidTime = 30 * 60 * 1000L;
     private final UserDetailsService userDetailsService;
 
-    protected void init(){
+    protected void init() {
         secretKey = Base64.getEncoder().encodeToString(secretKey.getBytes());
     }
 
-    public String createToken(String userPk, Long time){
+    public String createToken(String userPk, Long time) {
 
-        tokenValidTime = time*60*1000L;
+        tokenValidTime = time * 60 * 1000L;
 
         Claims claims = Jwts.claims().setSubject(userPk);
         Date now = new Date();
@@ -61,7 +62,7 @@ public class JwtTokenProvider {
     public boolean validateToken(String jwtToken) {
         try {
             Jws<Claims> claims = Jwts.parser().setSigningKey(secretKey).parseClaimsJws(jwtToken);
-            return !claims.getBody().getExpiration().before(new Date());
+            return (!claims.getBody().getExpiration().before(new Date()));
         } catch (Exception e) {
             return false;
         }

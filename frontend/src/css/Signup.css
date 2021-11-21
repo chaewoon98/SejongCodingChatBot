@@ -1,0 +1,289 @@
+* {
+  padding: 0;
+  margin: 0;
+}
+
+html,
+body {
+  width: 100%;
+  height: 100%;
+  background-color: #f6f6f6;
+}
+
+a {
+  text-decoration: none;
+}
+
+@font-face {
+  font-family: 'nanumB';
+  src: url('../fonts/NanumSquareRoundEB.ttf');
+}
+
+@font-face {
+  font-family: 'nanumR';
+  src: url('../fonts/NanumSquareR.ttf');
+}
+
+@font-face {
+  font-family: 'GmB';
+  src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/GmarketSansBold.woff')
+    format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'GmL';
+  src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/GmarketSansLight.woff')
+    format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
+#signupMainContainer {
+  width: 100%;
+  height: fit-content;
+  display: flex;
+  flex-direction: column;
+  padding-bottom: 100px;
+}
+
+#signupBox {
+  width: 850px;
+  height: fit-content;
+  position: relative;
+  top: 50px;
+  background-color: white;
+  margin: 0 auto 10px auto;
+  padding: 20px;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+#signupBox img {
+  width: 125px;
+  height: 125px;
+
+  /* padding:  5px; */
+  border: 0;
+  margin-top: 20px;
+  margin-bottom: 60px;
+
+  /* 이미지  */
+  image-rendering: -webkit-optimize-contrast;
+  transform: translateZ(0);
+  backface-visibility: hidden;
+}
+
+#signupBox h3 {
+  font-family: 'GmB';
+  font-size: 27px;
+  margin-bottom: 5px;
+}
+
+#signupBox h4 {
+  font-family: 'nanumR';
+  font-size: 15px;
+  margin-top: 20px;
+  margin-bottom: 0px;
+}
+
+#signupNoticeBox {
+  width: 700px;
+  /* border:#990000 solid 2px; */
+  background-color: #f6f6f6;
+
+  margin: 50px auto 100px auto;
+  padding: 30px;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+
+  text-align: left;
+}
+
+#signupNoticeBox div:nth-of-type(1) {
+  font-family: 'nanumB';
+  font-size: 27px;
+  margin-bottom: 30px;
+}
+
+#signupNoticeBox div:nth-of-type(2) {
+  display: flex;
+  flex-direction: row-reverse;
+  font-family: 'nanumR';
+  font-size: 15px;
+  margin-top: 80px;
+}
+
+/* #signupNoticeBox div:nth-of-type(2) input[type="checkbox"] {
+  width: 17px;
+  height: 17px;
+
+  margin-right: 10px;
+  background: #990000;
+} */
+
+
+input[type='checkbox'] {
+  width: 17px;
+  height: 17px;
+  margin-right: 10px;
+}
+
+input[type='checkbox']:checked {
+  width: 17px;
+  height: 17px;
+  background-color: #990000;
+  border-radius: 3px;
+
+  -moz-appearance: none;
+  -webkit-appearance: none;
+  -o-appearance: none;
+}
+
+#signupNoticeBox li {
+  font-family: 'nanumB';
+  padding-left: 0px;
+  font-size: 20px;
+  margin-bottom: 20px;
+  list-style: none;
+}
+
+#signupNoticeBox li:last-of-type {
+  font-family: 'nanumB';
+  padding-left: 0px;
+  font-size: 20px;
+  margin-bottom: 0px;
+  list-style: none;
+}
+
+#emailInput {
+  width: 320px;
+  border: solid 2px #990000;
+  border-radius: 10px;
+  font-size: 20px;
+  font-family: 'nanumR';
+  padding: 10px;
+  margin: 30px 10px 40px 0px;
+}
+
+#emailInput:focus {
+  outline: none;
+  border: solid 2px #ff7777;
+  /* border: solid 3px #990000; */
+  /* border-radius: 10px; */
+}
+
+#signupEmailForm {
+  display: flex;
+  flex-direction: row;
+}
+
+#signupEmailForm p {
+  display: flex;
+  flex-direction: row;
+  font-size: 27px;
+  font-family: 'nanumR';
+  margin: 37px 00px 0px 0px;
+}
+
+#signupBox button {
+  width: 500px;
+  height: fit-content;
+  font-family: 'nanumB';
+  font-size: 17px;
+  margin-top: 20px;
+  margin-bottom: 50px;
+  padding: 15px 0 15px 0;
+
+  background-color: #990000;
+  color: white;
+  border-style: none;
+  border-radius: 30px;
+  cursor: pointer;
+}
+
+#signupBox button:hover {
+  background-color: #ff7777;
+}
+
+#noticeConfirm {
+  font-family: 'nanumB';
+  font-size: 17px;
+  color: #990000;
+}
+
+#signupForm{
+  width: 70%;
+  margin-top: 50px;
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+}
+
+#signupForm .smallTitle{
+  font-family: 'GmB';
+  font-size: 20px;
+  margin-top: 40px;
+  margin-bottom: 10px;
+}
+
+#signupForm .smallNotice{
+
+  font-family: 'GmB';
+  color: #990000;
+  font-size: 15px;
+  margin-bottom: 10px;
+}
+
+#signupForm .smallInput {
+  
+  border: solid 2px #990000;
+  border-radius: 10px;
+  font-size: 20px;
+  font-family: 'nanumR';
+  padding: 10px;
+}
+
+#signupForm .smallInputPassword {
+  
+  border: solid 2px #990000;
+  border-radius: 10px;
+  font-size: 20px;
+  padding: 10px;
+}
+
+#signupForm .smallInput:focus {
+  
+  outline: none;
+  border: solid 2px #ff7777;
+}
+
+#signupForm .smallInputPassword:focus {
+  
+  outline: none;
+  border: solid 2px #ff7777;
+}
+
+#signupForm button{
+  width: 400px;
+  height: fit-content;
+  font-family: 'nanumB';
+  font-size: 17px;
+  margin: 100px auto 0 auto;
+
+  background-color: #990000;
+  color: white;
+  border-style: none;
+  border-radius: 30px;
+  cursor: pointer;
+}
+
+
+

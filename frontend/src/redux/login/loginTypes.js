@@ -2,4 +2,12 @@ export const LOGIN_ORIGIN = 'LOGIN_ORIGIN';
 export const LOGIN_BEFORE = 'LOGIN_BEFORE';
 export const LOGIN_PENDING = 'LOGIN_PENDING';
 export const LOGIN_SUCCESS = 'LOGIN_SUCCESS';
+<<<<<<< HEAD
 export const LOGIN_FAIL = 'LOGIN_FAIL';
+=======
+export const LOGIN_FAIL = 'LOGIN_FAIL';
+export const CHANGE_SIGNUP_AUTH = 'CHANGE_SIGNUP_AUTH';
+export const CHANGE_SIGNUP_AUTH2 = 'CHANGE_SIGNUP_AUTH2';
+export const CHANGE_USER_ID = 'CHANGE_USER_ID';
+export const CHANGE_USER_NAME = 'CHANGE_USER_NAME';
+>>>>>>> upstream/master

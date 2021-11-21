@@ -40,11 +40,16 @@ a{
 
 #horizontalHeaderBg{
   position: fixed;
+  right: 0;
   display: flex;
   flex-direction: row;
   justify-content: flex-end;
+<<<<<<< HEAD
   left: 0;
   width: 100%;
+=======
+  /* width: 100%; */
+>>>>>>> upstream/master
   z-index: 15;
 }
 
@@ -80,13 +85,13 @@ a{
 
 #mainBanner{
   font-family: "GmB";
-  font-size: 2vw;
+  font-size: max(20px, 2vw);
   color: white;
 }
 
 #mainBanner2{
   font-family: "GmB";
-  font-size: 5vw;
+  font-size: max(50px, 5vw);
   color: white;
 }
 
@@ -94,7 +99,7 @@ a{
   margin-top: 60px;
   width: fit-content;
   font-family: "GmB";
-  font-size: 2vw;
+  font-size: max(15px, 2vw);
   padding: 20px;
   background-color: #990000;
   color: white;
@@ -116,6 +121,10 @@ a{
 .verNavItemClicked{
   padding-bottom: 0.5px;
   background-color:#008cff;
+<<<<<<< HEAD
+=======
+  cursor: pointer;
+>>>>>>> upstream/master
 }
 
 .verNavItem:hover{
@@ -154,7 +163,7 @@ a{
   padding:  5px;
 
   /* 이미지  */
-  image-rendering: -webkit-optimize-contrast;
+  /* image-rendering: -webkit-optimize-contrast; */
   transform: translateZ(0);
   backface-visibility: hidden;
 }

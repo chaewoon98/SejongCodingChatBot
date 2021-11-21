@@ -8,12 +8,21 @@ import LoginModal from './modal/LoginModal';
 import LoadingModal from './modal/LoadingModal';
 import { login,changeType } from '../redux/login/loginActions';
 import {LOGIN_PENDING, LOGIN_FAIL, LOGIN_SUCCESS,LOGIN_BEFORE } from '../redux/login/loginTypes';
+<<<<<<< HEAD
 
 const Login = ({ loginState, login,changeType,history }) => {
+=======
+import { changeLoadingState } from '../redux/view/viewActions';
+import IdSearchModal from './modal/IdSearchModal';
+import PwSearchModal from './modal/PwSearchModal';
+
+const Login = ({ loginState, login,changeType,changeLoadingState,history }) => {
+>>>>>>> upstream/master
 
   const [id, setId] = useState("");
   const [pwd, setPwd] = useState("");
   const [modalOn, setModalOn] = useState(false);
+<<<<<<< HEAD
   const [loadingModalOn, setLoadingModalOn] = useState(false);
 
   console.log(loginState);
@@ -27,6 +36,22 @@ const Login = ({ loginState, login,changeType,history }) => {
       goToMain();
     } else if (loginState === LOGIN_PENDING) {
       setLoadingModalOn(true);
+=======
+  const [idSearchingModalOn,setIdSearchnigModalOn] = useState(false);
+  const [pwdSearchingModalOn,setPwdSearchingModalOn] = useState(false);
+  
+  //console.log(loginState);
+
+  useEffect(() => {
+    if (loginState === LOGIN_FAIL) {
+      changeLoadingState(false);
+      setModalOn(true);
+    } else if (loginState === LOGIN_SUCCESS) {
+      changeLoadingState(false);
+      goToMain();
+    } else if (loginState === LOGIN_PENDING) {
+      changeLoadingState(true);
+>>>>>>> upstream/master
       setModalOn(false);
     }
   });
@@ -52,6 +77,7 @@ const Login = ({ loginState, login,changeType,history }) => {
       <HorizontalHeader />
 
       <>
+<<<<<<< HEAD
         {loadingModalOn ? <LoadingModal/> : ''}
       </>
 
@@ -60,6 +86,21 @@ const Login = ({ loginState, login,changeType,history }) => {
          changeType={(type)=>{changeType(type);}} /> : ''}
       </>
 
+=======
+        {modalOn ? <LoginModal setModalOn={setModalOn}
+         changeType={(type)=>{changeType(type);}} /> : ''}
+      </>
+
+      <>
+        {idSearchingModalOn ? <IdSearchModal setModalOn={setIdSearchnigModalOn} /> : ''}
+      </>
+
+      <>
+        {pwdSearchingModalOn ? <PwSearchModal setModalOn={setPwdSearchingModalOn} changeLoadingState={changeLoadingState} /> : ''}
+      </>
+
+
+>>>>>>> upstream/master
 
       <div id="loginBox">
         <img src="img/logo.png" />
@@ -73,10 +114,17 @@ const Login = ({ loginState, login,changeType,history }) => {
           onChange={(e) => { setPwd(e.target.value); }}></input>
 
         <div id="textBox">
+<<<<<<< HEAD
           <h4 className="contentsText1">회원 가입</h4>
           <h4 className="contentsText1">아아디 찾기</h4>
           <h4 className="contentsText1">비밀번호 찾기</h4>
 
+=======
+          <h4 className="contentsText1" onClick={()=>{history.push("/signup")}}>회원 가입</h4>
+          <h4 className="contentsText1" onClick={()=>{setIdSearchnigModalOn(true)}}>아아디 찾기</h4>
+          <h4 className="contentsText1" onClick={()=>{setPwdSearchingModalOn(true)}}>비밀번호 찾기</h4>
+          
+>>>>>>> upstream/master
         </div>
 
         <button onClick={() => { { logining(); } }}>로그인</button>
@@ -85,9 +133,13 @@ const Login = ({ loginState, login,changeType,history }) => {
   );
 };
 
-const mapStateToProps = ({ login }) => {
+const mapStateToProps = ({ login,views }) => {
   return {
     loginState: login.type,
+<<<<<<< HEAD
+=======
+    isLoading : views.isLoading,
+>>>>>>> upstream/master
   };
 };
 
@@ -95,6 +147,10 @@ const mapDispatchToProps = (dispatch) => {
   return {
     login: (id, pwd) => dispatch(login(id, pwd)),
     changeType: (type) => dispatch(changeType(type)),
+<<<<<<< HEAD
+=======
+    changeLoadingState : (props) => dispatch(changeLoadingState(props))
+>>>>>>> upstream/master
   };
 };
 
