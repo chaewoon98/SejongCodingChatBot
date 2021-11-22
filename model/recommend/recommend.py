@@ -8,18 +8,21 @@ from re import match
 
 class Recommendation:
 
-    def preProcess(self):
+    def preProcess(self, db):
 
-        # loca = os.getcwd()
-        loca = ""
+        #DB 연결
+        db = Database(
+            host=DB_HOST, user=DB_USER, password=DB_PASSWORD, db_name=DB_NAME
+        )
+        db.connect()
 
-        data = pd.read_csv(loca +'/recommend/dataset.csv', low_memory=False)
-
-        # 데이터셋에 삽입
-        df = pd.DataFrame(data)
+        data = self.db.select_row("select * from chatbot_train_data_new")
+        df = pd.DataFrame(data) # 데이터셋에 삽입
 
         # Description과 Title이 공백이면 데이터프레임에서 제거
         data = df[['타이틀(Title)', '설명(Description)']].dropna()
+
+        db.close()  # DB 연결 끊음
 
         return data
 
@@ -80,6 +83,13 @@ class Recommendation:
             result.append(data['타이틀(Title)'][i])
 
         return result
+
+
+    def deleteUserData(data):
+        #사용자 질문 데이터를 데이터셋에서 삭제 (마지막행 삭제)
+        data = data.drop(len(data) - 1)
+
+        return data
 
 # 결과 확인시 사용!
 # print(get_recommendations(test_data, len(test_data) - 1))
