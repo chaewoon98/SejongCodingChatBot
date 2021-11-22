@@ -44,9 +44,8 @@ class Recommendation:
         return data
 
 
-    # 사용자의 질문에 대해 코사인 유사도를 이용하여
-    # 가장 유사도가 비슷한 질문을 찾아내는 함수
-    def get_recommendations(self, data, idx):
+    # 유사도를 구하여 높은 순으로 반환
+    def get_similarity(self, data, idx):
         # Decscription에 대해 tf-idf 수행
 
         tfidf = TfidfVectorizer()
@@ -58,8 +57,6 @@ class Recommendation:
         # print(cosine_sim)
 
         indices = pd.Series(data.index, index=data['타이틀(Title)']).drop_duplicates()
-        # print(indices.head())
-        idx = indices['user question']
 
         # 모든 질문에 대해 해당 질문과의 유사도 구하기
         sim_scores = list(enumerate(cosine_sim[idx]))
@@ -73,9 +70,22 @@ class Recommendation:
         # 가장 유사한 5개의 질문의 인덱스 받아오기
         ques_indices = []
         ques_indices = [i[0] for i in sim_scores]
+        return ques_indices
 
-        # 가장 유사한 5개의 질문 리턴
-        #data['타이틀(Title)'].iloc[ques_indices]
+
+    # 사용자의 질문에 대해 코사인 유사도를 이용하여
+    # 가장 유사도가 비슷한 질문을 찾아내는 함수
+    def get_recommendations(self, data, idx):
+
+        ques_indices = self.get_similarity(data, idx)
+
+        #가장 유사도 높은 질문과 유사한 질문 구하기
+        first_result_idx = ques_indices[0]
+        ques_indices = self.get_similarity(data, first_result_idx)
+
+        if ques_indices[0] == idx:
+            print(ques_indices[0])
+            ques_indices[0] = first_result_idx
 
         result = []
 
