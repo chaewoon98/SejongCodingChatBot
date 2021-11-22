@@ -16,7 +16,7 @@
       <sourceFolder url="file://$MODULE_DIR$/chatbot/models/ner" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/.idea/inspectionProfiles" isTestSource="false" />
     </content>
-    <orderEntry type="jdk" jdkName="Python 3.8 (sjbot)" jdkType="Python SDK" />
+    <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
   </component>
 </module>
