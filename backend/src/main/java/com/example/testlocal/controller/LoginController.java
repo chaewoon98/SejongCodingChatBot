@@ -97,12 +97,6 @@ public class LoginController {
         return accessToken;
     }
 
-    @PostMapping("/usersignup")
-    public String userSignUp(@RequestBody Map<String, String> map) {
-        userService.signUp(new UserDTO(map.get("studentId"), map.get("id"), map.get("pwd"), map.get("name")));
-        return "good";
-    }
-
     @PostMapping("/refreshLoginToken")
     public String refreshLoginToken( @CookieValue(name = "refreshToken", defaultValue = "-1") String refreshToken,
                                     HttpServletResponse response) {

@@ -7,15 +7,6 @@ import Login from './contents/Login';
 import Main from './contents/Main';
 import { Provider } from 'react-redux';
 import store from './redux/store';
-<<<<<<< HEAD
-import UserRoute from './router/userRoute';
-import MyPage from './contents/MyPage';
-import Qa from './contents/Qa';
-import Curriculum from './contents/Curriculum';
-import TaChatRoom from './contents/TaChatRoom';
-import Loading from './contents/Loading';
-import Root from './contents/Root';
-=======
 import UserRoute from './router/UserRoute';
 import SignupRoute from './router/SignupRoute';
 import MyPage from './contents/MyPage';
@@ -27,7 +18,6 @@ import Signup from './contents/Signup';
 import SignupDetails from './contents/SignupDetails';
 import LoadingModal from './contents/modal/LoadingModal';
 import SignupComplete from './contents/SignupComplete';
->>>>>>> upstream/master
 
 function App() {
   
@@ -35,20 +25,6 @@ function App() {
     <Provider store={store}>
       <div className="App">
         <BrowserRouter>
-<<<<<<< HEAD
-          <Route path="/" component={Root} />
-
-          <Route path="/" component={Main} exact />
-          
-          <UserRoute path="/botchatroom" component={BotChatRoom} />
-          <UserRoute path="/tachatroom" component={TaChatRoom} />
-          <UserRoute path="/myPage" component={MyPage} />
-          
-          <Route path="/login" component={Login} />
-          <Route path="/curri" component={Curriculum} />
-          <Route path="/qa" component={Qa} />
-          <Route path="/loading" component={Loading}/>
-=======
           {/* <Route path="/" component={Root} /> */}
           <LoadingModal/>
 
@@ -66,7 +42,6 @@ function App() {
 
           <Route path="/login" component={Login} />
           <Route path="/qa" component={Qa} />
->>>>>>> upstream/master
         </BrowserRouter>
       </div>
     </Provider>

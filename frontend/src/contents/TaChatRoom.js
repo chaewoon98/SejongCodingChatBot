@@ -1,100 +1,8 @@
-<<<<<<< HEAD
-import React, { useEffect, useRef, useSelector } from 'react';
-=======
 import React, { useState, useEffect, useRef, useSelector } from 'react';
->>>>>>> upstream/master
 import VerticalHeader from './VerticalHeader';
 import HorizontalHeader from './HorizontalHeader';
 import { Link } from 'react-router-dom';
 import { connect, useDispatch } from 'react-redux';
-<<<<<<< HEAD
-import {
-  addMsgData,
-  getBotResponse,
-  fetchChatData,
-} from '../redux/chat/ta_chat/taChatActions';
-import '../css/Chatroom.css';
-import SockJS from 'sockjs-client';
-import { Stomp } from '@stomp/stompjs';
-
-let sockJS = new SockJS('http://localhost:8080/websocket');
-let stomp = Stomp.over(sockJS);
-
-const chatData = ({ chatsData }) => {
-  const chatItems = chatsData.map((chat) => {
-    if (chat.sender === 'ta') {
-      return <BotChatMsgItem msg={chat.msg} key={chat.id} />;
-    } else if (chat.sender === 'user') {
-      return <UserChatMsgItem msg={chat.msg} key={chat.id} />;
-    }
-  });
-
-  return <>{chatItems}</>;
-};
-
-const listData = ({ list }) => {
-  const listItems = list.map((item) => {
-    return (
-      <li key={item.id}>
-        <p>{item.title}</p>
-        <p>{item.des}</p>
-      </li>
-    );
-  });
-
-  return <>{listItems}</>;
-};
-
-function BotChatMsgItem({ msg }) {
-  return (
-    <li className="botMsg">
-      <img src="img/taman.png" />
-      <div>
-        <p>TA 홍길동</p>
-        <p>{msg}</p>
-      </div>
-    </li>
-  );
-}
-
-function UserChatMsgItem({ msg }) {
-  return (
-    <li className="userMsg">
-      <div>
-        <p>나</p>
-        <p>{msg}</p>
-      </div>
-    </li>
-  );
-}
-
-const TaChatRoom = ({ num, chatsData, list, addMsgData, getBotResponse }) => {
-  const msgInput = useRef();
-  const scrollRef = useRef();
-
-  useEffect(() => {
-    scrollToBottom();
-
-    stomp.connect({}, () => {
-      stomp.subscribe('/sub/chat/room/' + '12321', function (chat) {
-
-        var content = JSON.parse(chat.body);
-        
-        console.log(content);
-        
-        addMsgData(num, 'ta', content.message);
-        // chatBox.append(
-        //   '<li>' + content.message + '(' + content.userId + ')</li>',
-        // );
-
-      });
-    });
-
-  });
-
-  const scrollToBottom = () => {
-    scrollRef.current.scrollIntoView({ behavior: 'smooth' });
-=======
 import axios from 'axios';
 import { API_BASE_URL } from './utils/Constant';
 import { useLocation } from 'react-router';
@@ -628,7 +536,6 @@ const TaChatRoom = ({
     if (scrollRef) {
       scrollRef.current.scrollIntoView({ behavior: 'auto' });
     }
->>>>>>> upstream/master
   };
 
   const handleKeyPress = (e) => {
@@ -643,18 +550,6 @@ const TaChatRoom = ({
     if (text === '') {
       return;
     }
-<<<<<<< HEAD
-
-    stomp.send('/pub/chat/message', {}, JSON.stringify({roomNo: 12321, userId: "user", message: text}));
-
-    addMsgData(num, 'user', text);
-    msgInput.current.value = '';
-
-    //getBotResponse(text);
-    //scrollToBottom();
-  }
-
-=======
     console.log(nowRoomId);
     stomp.send(
       '/pub/chat/message',
@@ -704,21 +599,11 @@ const TaChatRoom = ({
       });
   };
 
->>>>>>> upstream/master
   return (
     <div style={{ width: '100%' }}>
       <VerticalHeader />
       <HorizontalHeader />
 
-<<<<<<< HEAD
-      <div id="chatRoomBody">
-        <div id="emptySpace1" />
-
-        <div id="secondHorizontalNav">
-          <h3 style={{ color: '#008cff' }}> 채팅방 목록</h3>
-          <div>
-            <div>{listData({ list })}</div>
-=======
       <>{modalOn ? <ChatRoomDeniedModal setModalOn={setModalOn} /> : ''}</>
 
       <>
@@ -760,7 +645,6 @@ const TaChatRoom = ({
           </div>
           <div className="navInner2Div">
             <div>{listData()}</div>
->>>>>>> upstream/master
           </div>
         </div>
 
@@ -768,11 +652,7 @@ const TaChatRoom = ({
           <h3 style={{ color: '#008cff' }}>대화하기</h3>
 
           <div id="taChattingSpace">
-<<<<<<< HEAD
-            {chatData({ chatsData })}
-=======
             {chatData()}
->>>>>>> upstream/master
             <div ref={scrollRef}></div>
           </div>
 
@@ -792,36 +672,24 @@ const TaChatRoom = ({
   );
 };
 
-<<<<<<< HEAD
-const mapStateToProps = ({ taChats }) => {
-  console.log(taChats.chats);
-=======
 const mapStateToProps = ({ taChats, login }) => {
   //console.log(taChats.chats);
->>>>>>> upstream/master
 
   return {
     chatsData: taChats.chats,
     list: taChats.list,
     num: taChats.num,
-<<<<<<< HEAD
-=======
     roomNum: taChats.roomNum,
     nowRoomId: taChats.nowRoomId,
     loginState: login.type,
     userName: login.userName,
     userId: login.userId,
->>>>>>> upstream/master
   };
 };
 
 const mapDispatchToProps = (dispatch) => {
   return {
     fetchChatData: () => dispatch(fetchChatData()),
-<<<<<<< HEAD
-    addMsgData: (id, sender, msg) => dispatch(addMsgData(id, sender, msg)),
-    getBotResponse: (msg) => dispatch(getBotResponse(msg)),
-=======
     addMsgData: (id, name, userId, msg, time) =>
       dispatch(addMsgData(id, name, userId, msg, time)),
     addRoomData: (id, roomId, title, des, isChecked) =>
@@ -839,7 +707,6 @@ const mapDispatchToProps = (dispatch) => {
     changeType: (type) => dispatch(changeType(type)),
     changeLoadingState: (props) => dispatch(changeLoadingState(props)),
     onLoginSuccess: (props) => dispatch(onLoginSuccess(props)),
->>>>>>> upstream/master
   };
 };
 

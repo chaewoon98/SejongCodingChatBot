@@ -46,8 +46,6 @@ body {
   display: flex;
   flex-direction: column;
   padding-right: 5px;
-<<<<<<< HEAD
-=======
 }
 
 .secondHorizontalNav #navInnerDiv {
@@ -73,7 +71,6 @@ body {
 
 .secondHorizontalNav #navInnerDiv div:hover{
   background-color: #00d8ec;
->>>>>>> upstream/master
 }
 
 .secondHorizontalNav .navInner2Div {
@@ -84,17 +81,6 @@ body {
   min-width: 300px;
   background-color: #f6f6f6;
   /* background-color: #ebf6ff; */
-<<<<<<< HEAD
-}
-
-#emptySpace1{
-  /* background-color: #ebf6ff; */
-  background-color: #f6f6f6;
-  width: 160px;
-  /* max-width: 130px; */
-  min-width: 90px;
-=======
->>>>>>> upstream/master
 }
 
 #emptySpace1 {
@@ -114,13 +100,8 @@ body {
   color: #990000;
 }
 
-<<<<<<< HEAD
-#secondHorizontalNav div li {
-  width: 20vw;
-=======
 .secondHorizontalNav div .nonSelectedRoomLi {
   /* width: 20vw; */
->>>>>>> upstream/master
   font-family: 'nanumB';
   background-color: white;
   margin: 0px 20px 20px 20px;
@@ -293,11 +274,7 @@ body {
   /* border-radius: 10px; */
 }
 
-<<<<<<< HEAD
-#msgBnt{
-=======
 #msgBnt {
->>>>>>> upstream/master
   width: fit-content;
   font-family: 'nanumB';
   font-size: 17px;
@@ -311,15 +288,6 @@ body {
   cursor: pointer;
 }
 
-<<<<<<< HEAD
-#msgBnt:hover{
-  background-color: #ff7777;
-}
-
-#taMsgBnt{
-  width: fit-content;
-  font-family: "nanumB";
-=======
 #msgBnt:hover {
   background-color: #ff7777;
 }
@@ -327,7 +295,6 @@ body {
 #taMsgBnt {
   width: fit-content;
   font-family: 'nanumB';
->>>>>>> upstream/master
   font-size: 17px;
   margin: 20px 20px 20px 0px;
   padding: 0px 13px 0px 13px;
@@ -339,11 +306,7 @@ body {
   cursor: pointer;
 }
 
-<<<<<<< HEAD
-#taMsgBnt:hover{
-=======
 #taMsgBnt:hover {
->>>>>>> upstream/master
   background-color: #00d8ec;
 }
 
@@ -553,21 +516,9 @@ body {
   border-radius: 10px;
 }
 
-#taChattingSpace::-webkit-scrollbar-thumb{
-  height: 17%;
-  background-color:#008cff;
-  /* 스크롤바 둥글게 설정    */
-  border-radius: 10px;  
-}
-
 /* 스크롤바 뒷 배경 설정*/
 #chattingSpace::-webkit-scrollbar-track,
-<<<<<<< HEAD
-#taChattingSpace::-webkit-scrollbar-track
-{
-=======
 #taChattingSpace::-webkit-scrollbar-track {
->>>>>>> upstream/master
   background-color: #f6f6f6;
   border-radius: 10px;
 }

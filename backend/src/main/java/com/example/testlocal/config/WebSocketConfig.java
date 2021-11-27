@@ -1,9 +1,6 @@
 package com.example.testlocal.config;
 
-<<<<<<< HEAD
-=======
 
->>>>>>> upstream/master
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.messaging.simp.config.MessageBrokerRegistry;
@@ -19,16 +16,6 @@ public class WebSocketConfig implements WebSocketMessageBrokerConfigurer {
     //endpoint 등록
     //연결시 CORS(CrossOrigin) 허용
     @Override
-<<<<<<< HEAD
-    public void registerStompEndpoints(StompEndpointRegistry registry){
-        registry.addEndpoint("/websocket").setAllowedOriginPatterns("*").withSockJS();
-    }
-
-    @Override
-    public void configureMessageBroker(MessageBrokerRegistry registry){
-        registry.setApplicationDestinationPrefixes("/pub");
-        registry.enableSimpleBroker("/sub");
-=======
     public void registerStompEndpoints(StompEndpointRegistry registry) {
         registry.addEndpoint("/websocket","websocket2").setAllowedOriginPatterns("*").withSockJS();
     }
@@ -39,15 +26,12 @@ public class WebSocketConfig implements WebSocketMessageBrokerConfigurer {
         registry.enableSimpleBroker("/sub"); //topic
         //registry.setApplicationDestinationPrefixes("/app"); //app
         //registry.enableSimpleBroker("/topic"); //topic
->>>>>>> upstream/master
     }
 
     @Bean
     public ServerEndpointExporter serverEndpointExporter() {
         return new ServerEndpointExporter();
     }
-<<<<<<< HEAD
-=======
 
 //    public class HttpHandshakeInterceptor implements HandshakeInterceptor {
 //
@@ -66,5 +50,4 @@ public class WebSocketConfig implements WebSocketMessageBrokerConfigurer {
 //
 //        }
 //    }
->>>>>>> upstream/master
 }

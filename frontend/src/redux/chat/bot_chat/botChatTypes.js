@@ -4,9 +4,7 @@ export const FETCH_CHATDATA_SUCCESS = 'FETCH_CHATDATA_SUCCESS';
 export const FETCH_CHATDATA_FAILURE = 'FETCH_CHATDATA_FAILURE';
 
 export const ADD_BOT_CHATMSG = 'ADD_BOT_CHATMSG'; 
-<<<<<<< HEAD
-export const GET_BOT_RESPONSE = 'GET_BOT_RESPONSE';
-=======
+export const ADD_KEYWORD_LIST = 'ADD_KEYWORD_LIST'; 
 export const GET_BOT_RESPONSE = 'GET_BOT_RESPONSE';
 
 export const CHAGNE_CROOM_ID = 'CHAGNE_CROOM_ID'; 
@@ -14,4 +12,3 @@ export const CHAGNE_PROOM_ID = 'CHAGNE_PROOM_ID';
 export const CHAGNE_NOW_BOTROOM_ID = 'CHAGNE_NOW_BOTROOM_ID';
 
 export const CLEAR_CHAT_LIST = 'CLEAR_CHAT_LIST';
->>>>>>> upstream/master

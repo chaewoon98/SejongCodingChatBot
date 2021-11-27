@@ -1,25 +1,8 @@
-<<<<<<< HEAD
-import React,{useState,useEffect} from 'react';
-=======
 import React, { useState, useEffect } from 'react';
->>>>>>> upstream/master
 import VerticalHeader from './VerticalHeader';
 import HorizontalHeader from './HorizontalHeader';
 import axios from 'axios';
 import { connect, useDispatch } from 'react-redux';
-<<<<<<< HEAD
-import { changeType } from '../redux/login/loginActions';
-import Root from './Root';
-import { LOGIN_BEFORE, LOGIN_SUCCESS } from '../redux/login/loginTypes';
-
-const MyPage = ({ history, loginState,changeType }) => {
-
-  const logout = () => {
-
-    axios
-      .post(
-        'http://localhost:8080/userlogout',
-=======
 import { changeType, onLoginSuccess } from '../redux/login/loginActions';
 import Root from './Root';
 import { LOGIN_BEFORE, LOGIN_SUCCESS } from '../redux/login/loginTypes';
@@ -96,7 +79,6 @@ const MyPage = ({
     axios
       .post(
         API_BASE_URL + '/userlogout',
->>>>>>> upstream/master
         {},
         {
           headers: {
@@ -118,15 +100,6 @@ const MyPage = ({
   };
 
   return (
-<<<<<<< HEAD
-    <div>
-      <VerticalHeader />
-      {/* <HorizontalHeader /> */}
-      myPage입니다 ㅅㄱmyPage입니다 ㅅㄱmyPage입니다 ㅅㄱ
-      <button style={{ zIndex: '999' }} onClick={() => logout()}>
-        로그 아웃
-      </button>
-=======
     <div style={{ height: '100%' }}>
       <VerticalHeader />
       <HorizontalHeader />
@@ -177,7 +150,6 @@ const MyPage = ({
         </div>
       </div>
       {/* <div style={{ width: '100%', height: '50px' }} /> */}
->>>>>>> upstream/master
     </div>
   );
 };
@@ -191,11 +163,8 @@ const mapStateToProps = ({ login }) => {
 const mapDispatchToProps = (dispatch) => {
   return {
     changeType: (type) => dispatch(changeType(type)),
-<<<<<<< HEAD
-=======
     changeLoadingState: (props) => dispatch(changeLoadingState(props)),
     onLoginSuccess: (props) => dispatch(onLoginSuccess(props)),
->>>>>>> upstream/master
   };
 };
 

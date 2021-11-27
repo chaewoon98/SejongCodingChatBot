@@ -3,10 +3,7 @@ package com.example.testlocal.domain.entity;
 import com.example.testlocal.domain.dto.ChatbotDTO;
 import com.example.testlocal.service.ChatbotRoomService;
 import com.example.testlocal.service.UserService2;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 import javax.persistence.*;
 import java.sql.Timestamp;
@@ -40,11 +37,16 @@ public class Chatbot {
     @JoinColumn(name = "user_id", nullable = false)
     private User user;
 
-    public Chatbot(ChatbotDTO requestDTO, UserService2 userService,ChatbotRoomService roomService) {
+    public void setRecommends(String recommends) {
+        this.recommends = recommends;
+    }
+
+    public Chatbot(ChatbotDTO requestDTO, UserService2 userService, ChatbotRoomService roomService) {
         this.message = requestDTO.getMessage();
         this.createTime = requestDTO.getCreateTime();
         this.user = userService.findById(requestDTO.getUserId());
         this.room = roomService.findById(requestDTO.getChatbotRoomId());
+        this.recommends = requestDTO.getRecommends();
     }
 
 

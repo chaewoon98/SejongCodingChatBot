@@ -31,7 +31,8 @@ public class CompilerController {
     @SneakyThrows
     @PostMapping("/compiler/python")
     public String compileInPython(@RequestBody Map<String, String> map){
-        return compilerService.sendPython(map.get("code"), map.get("input"));
+        //return compilerService.sendPython(map.get("code"), map.get("input"));
+        return "악악";
     }
 
 

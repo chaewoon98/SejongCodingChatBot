@@ -4,46 +4,6 @@ import {
   FETCH_CHATDATA_SUCCESS,
   FETCH_CHATDATA_FAILURE,
   ADD_TA_CHATMSG,
-<<<<<<< HEAD
-  GET_TA_RESPONSE,
-} from './taChatTypes';
-
-const initialState = {
-  num: 4,
-  chats: [
-    {
-      id: 1,
-      sender: 'user',
-      msg: '질문있습니다. 조교님.',
-    },
-    {
-      id: 2,
-      sender: 'ta',
-      msg: '넵넵ㅎㅎ',
-    },
-    {
-      id: 3,
-      sender: 'user',
-      msg: '과제1번 알랴주세용',
-    },
-    {
-      id: 4,
-      sender: 'ta',
-      msg: 'ㅋㅋ안됩니당ㅋㅋ',
-    },
-  ],
-  list: [
-    {
-      id: 1,
-      title: '고급 C프로그래밍',
-      des: '홍길동 교수 / TA 박태수',
-    },
-    {
-      id: 2,
-      title: '알고리즘 및 실습',
-      des: '홍길동 교수 / TA 정성벽',
-    },
-=======
   ADD_TA_CHATROOM,
   GET_TA_RESPONSE,
   CHANGE_NOW_TA_CHATROOM,
@@ -84,23 +44,16 @@ const initialState = {
     //   des: '홍길동 교수 / TA 정성벽',
     //   isChecked : false,
     // },
->>>>>>> upstream/master
   ],
 };
 
 const taChatReducer = (state = initialState, action) => {
   const { type, data } = action;
-<<<<<<< HEAD
-  
-=======
 
->>>>>>> upstream/master
   switch (type) {
     case FETCH_CHATDATA_SUCCESS:
       return state;
 
-<<<<<<< HEAD
-=======
     case CLEAR_TACHAT_LIST:
       return {
         ...state,
@@ -116,39 +69,20 @@ const taChatReducer = (state = initialState, action) => {
         roomNum: 0,
       };
 
->>>>>>> upstream/master
     case ADD_TA_CHATMSG:
       //state.num= state.num + 1;
       return {
         ...state,
         chats: state.chats.concat({
           id: state.num + 1,
-<<<<<<< HEAD
-          sender: data.sender,
-          msg: data.msg,
-=======
           name: data.name,
           userId: data.userId,
           msg: data.msg,
           time: data.time,
->>>>>>> upstream/master
         }),
         num: state.num + 1,
       };
 
-<<<<<<< HEAD
-    case GET_TA_RESPONSE:
-      return {
-        ...state,
-        chats: state.chats.concat({
-          id: state.num + 1,
-          sender: 'ta',
-          msg: data.msg,
-        }),
-        num: state.num + 1,
-      };
-
-=======
     case CHANGE_NOW_TA_CHATROOM:
       return {
         ...state,
@@ -190,7 +124,6 @@ const taChatReducer = (state = initialState, action) => {
         draft.list.unshift(temp);
       });
 
->>>>>>> upstream/master
     default:
       return state;
   }

@@ -1,20 +1,6 @@
 import React from 'react'
 import '../../css/modal/LoadingModal.css'
 
-<<<<<<< HEAD
-const LoadingModal = () => {
-    return (
-        <div className="loadingModal">
-            <div className="loadingModalbg" />
-            <div className="loadingModalBox">
-                <img src="img/loading.gif"></img>
-            </div>
-        </div>
-    );
-}
-
-export default LoadingModal
-=======
 import { connect, useDispatch } from 'react-redux';
 
 const LoadingModal = ({ isLoading }) => {
@@ -45,4 +31,3 @@ const mapDispatchToProps = (dispatch) => {
 };
 
 export default connect(mapStateTpProps, mapDispatchToProps)(LoadingModal);
->>>>>>> upstream/master

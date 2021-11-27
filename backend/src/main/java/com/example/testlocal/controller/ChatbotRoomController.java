@@ -3,7 +3,9 @@ package com.example.testlocal.controller;
 import com.example.testlocal.config.Constants;
 import com.example.testlocal.domain.dto.ChatbotRoomDTO;
 import com.example.testlocal.domain.entity.ChatbotRoom;
+import com.example.testlocal.domain.entity.ChatbotTrainDataC;
 import com.example.testlocal.service.ChatbotRoomService;
+import com.example.testlocal.service.ChatbotTrainDataService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.*;
@@ -11,7 +13,6 @@ import org.springframework.web.bind.annotation.*;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 import java.util.List;
-import java.util.Map;
 
 @Slf4j
 @RestController
@@ -21,11 +22,22 @@ import java.util.Map;
 public class ChatbotRoomController {
 
     private final ChatbotRoomService chatbotRoomService;
+    private final ChatbotTrainDataService chatbotTrainDataService;
 
     @ResponseBody
     @PostMapping("/chatbotRoom")
     public ChatbotRoom createRoom(@RequestBody ChatbotRoomDTO requestDTO){
         return chatbotRoomService.create(requestDTO);
+    }
+
+    @PostMapping("/chatbotRoom/c/hotKeyword")
+    public List<ChatbotTrainDataC> getHotKeyWordC(){
+        return chatbotTrainDataService.findTop10TrainDataC();
+    }
+
+    @PostMapping("/chatbotRoom/python/hotKeyword")
+    public List<ChatbotTrainDataC> getHotKeyWordPython(){
+        return chatbotTrainDataService.findTop10TrainDataPython();
     }
 
     @PostMapping("/chatbotRoom/studentId")
@@ -63,11 +75,5 @@ public class ChatbotRoomController {
         HttpSession session = request.getSession();
         session.setAttribute("bRoomId",roomId);
     }
-
-    @PostMapping("/testtt")
-    public void test(@RequestBody Map<String, String> map){
-        System.out.println(map.get("code"));
-    }
-
 }
 

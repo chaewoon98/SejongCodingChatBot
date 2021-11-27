@@ -44,12 +44,7 @@ a{
   display: flex;
   flex-direction: row;
   justify-content: flex-end;
-<<<<<<< HEAD
-  left: 0;
-  width: 100%;
-=======
   /* width: 100%; */
->>>>>>> upstream/master
   z-index: 15;
 }
 
@@ -121,10 +116,7 @@ a{
 .verNavItemClicked{
   padding-bottom: 0.5px;
   background-color:#008cff;
-<<<<<<< HEAD
-=======
   cursor: pointer;
->>>>>>> upstream/master
 }
 
 .verNavItem:hover{

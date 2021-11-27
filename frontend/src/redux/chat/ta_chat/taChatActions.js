@@ -1,16 +1,9 @@
-<<<<<<< HEAD
-
-=======
->>>>>>> upstream/master
 import {
   FETCH_CHATDATA,
   FETCH_CHATDATA_REQUEST,
   FETCH_CHATDATA_SUCCESS,
   FETCH_CHATDATA_FAILURE,
   ADD_TA_CHATMSG,
-<<<<<<< HEAD
-  GET_TA_RESPONSE,
-=======
   ADD_TA_CHATROOM,
   GET_TA_RESPONSE,
   CHANGE_NOW_TA_CHATROOM,
@@ -18,7 +11,6 @@ import {
   CLEAR_TACHAT_LIST,
   CLEAR_TACHATROOM_LIST,
   UPDATE_TACHATROOM_LIST,
->>>>>>> upstream/master
 } from './taChatTypes';
 
 // const fetChatData = () => {
@@ -31,32 +23,6 @@ import {
 // }
 
 export const fetchChatData = () => {
-<<<<<<< HEAD
-    return {
-        type: FETCH_CHATDATA_SUCCESS,
-    };
-}
-
-export const addMsgData = (id, sender,msg) => {
-    return{
-      type: ADD_TA_CHATMSG,
-      data:{id:id,sender: sender, msg: msg}
-    };
-}
-
-export const getBotResponse = (msg) => {
-
-
-  msg = "엔샵 박태순 최고";
-
-  return{
-    type: GET_TA_RESPONSE,
-    data:{
-      msg:msg
-    }
-  }
-}
-=======
   return {
     type: FETCH_CHATDATA_SUCCESS,
   };
@@ -113,4 +79,3 @@ export const addRoomData = (id, roomId, title, des, isChecked) => {
     },
   };
 };
->>>>>>> upstream/master

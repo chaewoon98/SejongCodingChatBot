@@ -1,20 +1,14 @@
 import React from 'react'
 import VerticalHeader from './VerticalHeader';
 import HorizontalHeader from './HorizontalHeader';
-<<<<<<< HEAD
-=======
 import '../css/Qa.css';
 
->>>>>>> upstream/master
 
 const Qa = () => {
     return (
         <div>
             <VerticalHeader />
             <HorizontalHeader />
-<<<<<<< HEAD
-            <p>                            Qa이다!</p>
-=======
 
             <div id="qaBox">
                 <img src="img/logo.png" />
@@ -56,7 +50,6 @@ const Qa = () => {
 
             </div>
 
->>>>>>> upstream/master
         </div>
     )
 }

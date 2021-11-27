@@ -20,7 +20,7 @@ class Recommendation:
         df = pd.DataFrame(data) # 데이터셋에 삽입
 
         # Description과 Title이 공백이면 데이터프레임에서 제거
-        data = df[['타이틀(Title)', '설명(Description)']].dropna()
+        data = df[['title', 'description']].dropna()
 
         db.close()  # DB 연결 끊음
 
@@ -36,8 +36,8 @@ class Recommendation:
 
                 # 사용자의 문장 데이터셋에 삽입
         new_data = {
-            '타이틀(Title)': 'user question',
-            '설명(Description)': nouns
+            'title': 'user question',
+            'description': nouns
         }
         data = data.append(new_data, ignore_index=True)
 
@@ -49,14 +49,14 @@ class Recommendation:
         # Decscription에 대해 tf-idf 수행
 
         tfidf = TfidfVectorizer()
-        tfidf_matrix = tfidf.fit_transform(data['설명(Description)'].values.astype('U'))
+        tfidf_matrix = tfidf.fit_transform(data['description'].values.astype('U'))
         # print(tfidf_matrix.shape)
 
         # 코사인 유사도 구하기
         cosine_sim = cosine_similarity(tfidf_matrix, tfidf_matrix)
         # print(cosine_sim)
 
-        indices = pd.Series(data.index, index=data['타이틀(Title)']).drop_duplicates()
+        indices = pd.Series(data.index, index=data['title']).drop_duplicates()
 
         # 모든 질문에 대해 해당 질문과의 유사도 구하기
         sim_scores = list(enumerate(cosine_sim[idx]))
@@ -90,7 +90,7 @@ class Recommendation:
         result = []
 
         for i in ques_indices:
-            result.append(data['타이틀(Title)'][i])
+            result.append(data['title'][i])
 
         return result
 

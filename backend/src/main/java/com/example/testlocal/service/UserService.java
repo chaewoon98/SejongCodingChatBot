@@ -1,12 +1,5 @@
 package com.example.testlocal.service;
 
-<<<<<<< HEAD
-import com.example.testlocal.domain.dto.UserDTO;
-import com.example.testlocal.domain.entity.UserEntity;
-import com.example.testlocal.repository.UserRepository;
-import com.example.testlocal.security.JwtTokenProvider;
-import lombok.RequiredArgsConstructor;
-=======
 import com.example.testlocal.domain.dto.UserDTO2;
 import com.example.testlocal.domain.entity.User;
 import com.example.testlocal.exception.InvalidUserIdException;
@@ -14,7 +7,6 @@ import com.example.testlocal.repository.UserRepository2;
 import com.example.testlocal.security.JwtTokenProvider;
 import lombok.RequiredArgsConstructor;
 import org.springframework.mail.javamail.JavaMailSender;
->>>>>>> upstream/master
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -23,14 +15,8 @@ import javax.mail.MessagingException;
 import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
 import javax.servlet.http.Cookie;
-<<<<<<< HEAD
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Optional;
-=======
 import java.util.*;
 
->>>>>>> upstream/master
 
 @RequiredArgsConstructor
 @Service
@@ -63,11 +49,7 @@ public class UserService {
     }
 
     @Transactional
-<<<<<<< HEAD
-    public String signUp(UserDTO user) {
-=======
     public Long signUp(UserDTO2 user) {
->>>>>>> upstream/master
         // pw를 암호화하는 과정
         user.setPassword(passwordEncoder.encode(user.getPassword()));
         long id = userRepository2.save(user.toEntity()).getId();

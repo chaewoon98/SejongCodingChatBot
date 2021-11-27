@@ -60,7 +60,7 @@
     margin: 0px 0px 20px 0px;
 }
 
-.hotKeywordInfoModalBox div:nth-of-type(2){
+#hotKeywordInfoModalLine{
     
     width: 100%;
     height: 2px;

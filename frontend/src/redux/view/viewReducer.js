@@ -1,34 +1,21 @@
-<<<<<<< HEAD
-import { CHANGE_HEADER_INVERSE, CHANGE_VER_NAV_ITEM } from './viewTypes';
-=======
 import { CHANGE_HEADER_INVERSE, CHANGE_VER_NAV_ITEM, CHANGE_LOADING_STATE, CHAGNE_FIRST_RENDERING } from './viewTypes';
->>>>>>> upstream/master
 import { BASE_URL } from '../../contents/utils/Constant';
 
 const intialViewState = {
   isMain: true,
-<<<<<<< HEAD
-=======
   isLoading: false,
   isFirstRendering: true,
->>>>>>> upstream/master
   clickedNavNum: 0,
 };
 
 const viewReducer = (state = intialViewState, action) => {
-<<<<<<< HEAD
-=======
   const { type, data } = action;
->>>>>>> upstream/master
   const currentUrl = decodeURI(window.location.href);
 
   switch (action.type) {
     case CHANGE_HEADER_INVERSE:
       let isNowMain = false;
-<<<<<<< HEAD
-=======
 
->>>>>>> upstream/master
       if (currentUrl === BASE_URL + '/') isNowMain = true;
       else isNowMain = false;
 
@@ -37,8 +24,6 @@ const viewReducer = (state = intialViewState, action) => {
         isMain: isNowMain,
       };
 
-<<<<<<< HEAD
-=======
     case CHAGNE_FIRST_RENDERING:
       return {
         ...state,
@@ -52,7 +37,6 @@ const viewReducer = (state = intialViewState, action) => {
       };
 
 
->>>>>>> upstream/master
     case CHANGE_VER_NAV_ITEM:
       let num = 0;
 
@@ -65,11 +49,7 @@ const viewReducer = (state = intialViewState, action) => {
           num = 2;
           break;
 
-<<<<<<< HEAD
-        case BASE_URL + '/curri':
-=======
         case BASE_URL + '/codingEditor':
->>>>>>> upstream/master
           num = 3;
           break;
 
