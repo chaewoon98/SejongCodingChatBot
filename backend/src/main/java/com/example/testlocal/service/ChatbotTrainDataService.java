@@ -1,6 +1,7 @@
 package com.example.testlocal.service;
 
 import com.example.testlocal.domain.entity.ChatbotTrainDataC;
+import com.example.testlocal.domain.entity.ChatbotTrainDataPython;
 import com.example.testlocal.repository.ChatbotTrainDataCRepository;
 import com.example.testlocal.repository.ChatbotTrainDataPythonRepository;
 import lombok.RequiredArgsConstructor;
@@ -19,7 +20,7 @@ public class ChatbotTrainDataService {
         return chatbotTrainDataCRepository.findTop15ByOrderByCountDesc();
     }
 
-    public List<ChatbotTrainDataC> findTop10TrainDataPython(){
-        return chatbotTrainDataCRepository.findTop15ByOrderByCountDesc();
+    public List<ChatbotTrainDataPython> findTop10TrainDataPython(){
+        return chatbotTrainDataPythonRepository.findTop15ByOrderByCountDesc();
     }
 }

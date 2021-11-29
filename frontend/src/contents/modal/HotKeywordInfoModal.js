@@ -7,7 +7,7 @@ import { LOGIN_BEFORE } from '../../redux/login/loginTypes';
 const HotKeywordInfoModal = ({ setModalOn, title, content }) => {
   const contentResult = content
     .split('\n')
-    .map((it, i) => <div key={'x' + i}>{it}</div>);
+    .map((it, i) => <div key={'x' + i}>{it}<br/></div>);
 
   return (
     <div className="hotKeywordInfoModal">

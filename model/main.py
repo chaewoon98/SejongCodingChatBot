@@ -15,8 +15,8 @@ from sklearn.metrics.pairwise import cosine_similarity
 from re import match
 
 app = Flask(__name__)
-# loca = os.getcwd()
-loca = ""
+loca = os.getcwd()
+#loca = ""
 ############# chatbot #############
 
 # 전처리 객체 생성
@@ -38,16 +38,17 @@ question = GiveAnswer(db=db)
 
 reco = Recommendation()
 komoran = Komoran(userdic=loca +'/recommend/user_dic.txt')
-recoCPreProcessing = reco.preProcessC(db)
-recoPythonPreProcessing = reco.preProcessPython(db)
+recoCPreProcessing = reco.preProcessC(db=db)
+recoPythonPreProcessing = reco.preProcessPython(db=db)
 
 @app.route('/predict/bot_response', methods=['POST'])
 def predictBotResonse():
-    msg = request.get_json()
-    msg = msg.get("message")
-    print(msg)
+    req = request.get_json()
+    msg = req.get("message")
+    language = req.get("botLang")
+    print(msg + "   lang : " + language)
 
-    result_chatbot = question.give_answer(msg, intent, ner)
+    result_chatbot = question.give_answer(msg, intent, ner, language)
 
     c_data = reco.insertUserData(recoCPreProcessing, komoran, msg)
     python_data = reco.insertUserData(recoPythonPreProcessing, komoran, msg)

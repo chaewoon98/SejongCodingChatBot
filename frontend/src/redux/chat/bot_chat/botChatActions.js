@@ -10,6 +10,7 @@ import {
   CHAGNE_CROOM_ID,
   CHAGNE_PROOM_ID,
   CLEAR_CHAT_LIST,
+  CLEAR_KEYWORD_LIST,
   CHAGNE_NOW_BOTROOM_ID,
 } from './botChatTypes';
 
@@ -25,6 +26,12 @@ import {
 export const clearChatList = () => {
   return{
     type:CLEAR_CHAT_LIST,
+  }
+}
+
+export const clearKeywordList = () => {
+  return{
+    type:CLEAR_KEYWORD_LIST,
   }
 }
 

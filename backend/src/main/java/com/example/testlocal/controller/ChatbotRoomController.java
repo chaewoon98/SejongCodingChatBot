@@ -4,6 +4,7 @@ import com.example.testlocal.config.Constants;
 import com.example.testlocal.domain.dto.ChatbotRoomDTO;
 import com.example.testlocal.domain.entity.ChatbotRoom;
 import com.example.testlocal.domain.entity.ChatbotTrainDataC;
+import com.example.testlocal.domain.entity.ChatbotTrainDataPython;
 import com.example.testlocal.service.ChatbotRoomService;
 import com.example.testlocal.service.ChatbotTrainDataService;
 import lombok.RequiredArgsConstructor;
@@ -36,7 +37,8 @@ public class ChatbotRoomController {
     }
 
     @PostMapping("/chatbotRoom/python/hotKeyword")
-    public List<ChatbotTrainDataC> getHotKeyWordPython(){
+    public List<ChatbotTrainDataPython> getHotKeyWordPython(){
+
         return chatbotTrainDataService.findTop10TrainDataPython();
     }
 

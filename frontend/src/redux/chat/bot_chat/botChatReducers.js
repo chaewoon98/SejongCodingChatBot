@@ -9,7 +9,9 @@ import {
   CHAGNE_CROOM_ID,
   CHAGNE_PROOM_ID,
   CLEAR_CHAT_LIST,
+  CLEAR_KEYWORD_LIST,
   CHAGNE_NOW_BOTROOM_ID,
+  
 } from './botChatTypes';
 
 const initialState = {
@@ -65,6 +67,12 @@ const botChatReducer = (state = initialState, action) => {
       return {
         ...state,
         chats:[],
+      }
+    
+    case CLEAR_KEYWORD_LIST:
+      return{
+        ...state,
+        list:[],
       }
 
     case CHAGNE_CROOM_ID:

@@ -8,6 +8,6 @@ import java.util.List;
 
 public interface ChatbotTrainDataPythonRepository extends JpaRepository<ChatbotTrainDataPython, Long> {
 
-    List<ChatbotTrainDataC> findTop15ByOrderByCountDesc();
+    List<ChatbotTrainDataPython> findTop15ByOrderByCountDesc();
 
 }

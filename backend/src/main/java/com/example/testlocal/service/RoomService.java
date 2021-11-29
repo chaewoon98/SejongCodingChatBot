@@ -37,8 +37,9 @@ public class RoomService {
 
         for(int i = 0; i<result.size(); i++){
             String updateDate = repository.findLastChatTime(result.get(i).getId());
-            if(updateDate == null)
-                result.get(i).setUpdateDate("2030-12-30 00:00:00");
+
+            if(updateDate == null || updateDate.equals(""))
+                result.get(i).setUpdateDate("2000-12-30 00:00:00");
             else
                 result.get(i).setUpdateDate(updateDate);
         }

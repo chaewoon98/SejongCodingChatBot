@@ -15,7 +15,7 @@ class IntentModel:
         self.p = preprocess
 
     # 의도 클래스 예측
-    def predict_class(self, query):
+    def predict_intent_class(self, query):
         # 형태소 분석
         pos = self.p.pos(query)
 

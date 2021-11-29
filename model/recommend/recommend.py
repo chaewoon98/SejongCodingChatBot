@@ -5,12 +5,14 @@ import pandas as pd
 from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.metrics.pairwise import cosine_similarity
 from re import match
+from config.DatabaseConfig import *
+from Database import Database
 
 class Recommendation:
 
     def preProcessC(self, db):
 
-        data = self.db.select_row("select * from chatbot_train_data_c")
+        data = db.select_row("select * from chatbot_train_data_c")
         df = pd.DataFrame(data) # 데이터셋에 삽입
 
         # Description과 Title이 공백이면 데이터프레임에서 제거
@@ -20,7 +22,7 @@ class Recommendation:
 
     def preProcessPython(self, db):
 
-        data = self.db.select_row("select * from chatbot_train_data_python")
+        data = db.select_row("select * from chatbot_train_data_python")
         df = pd.DataFrame(data) # 데이터셋에 삽입
 
         #Inetnt가 인사이면 제거
